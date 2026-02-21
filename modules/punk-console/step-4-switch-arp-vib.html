@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electronics Lab | Punk Console | Étape 4 bonus</title>
+  <meta name="description" content="Punk Console étape 4 bonus : switch Arpège ↔ Vibrato pour comparer modulation carrée et modulation filtrée RC.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script defer src="../../assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../../index.html">Electronics Lab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay" id="site-menu" role="navigation" aria-label="Navigation principale" aria-hidden="true">
+    <ul class="nav-list" role="list">
+      <li><a class="nav-item" data-nav="index" href="../../index.html">Accueil</a></li>
+      <li><a class="nav-item" data-nav="modules" href="../../modules.html">Modules</a></li>
+      <li><a class="nav-item" data-nav="theorie" href="../../theorie.html">Théorie</a></li>
+      <li>
+        <a class="nav-item" data-nav="outils" href="../../outils.html">Outils</a>
+        <ul class="nav-submenu" role="list" hidden>
+          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="../../outils/couleurs-resistance.html">Couleurs résistance</a></li>
+          <li><a class="nav-subitem" data-nav="loi-ohm" href="../../outils/loi-ohm.html">Calcul loi d'Ohm</a></li>
+        </ul>
+      </li>
+      <li><a class="nav-item" data-nav="ressources" href="../../ressources.html">Ressources</a></li>
+      <li><a class="nav-item" data-nav="a-propos" href="../../a-propos.html">À propos</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../../index.html">Accueil</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../../modules.html">Modules</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../punk-console/">Punk Console</a>
+      <span aria-hidden="true">&gt;</span>
+      <span>Étape 4 bonus</span>
+    </nav>
+
+    <section class="page-header">
+      <h1>Étape 4 bonus : switch Arpège ↔ Vibrato</h1>
+      <p>Montrer que la forme du signal de modulation change complètement le rendu sonore, même avec la même vitesse LFO.</p>
+    </section>
+
+    <section class="card">
+      <h2>Objectif</h2>
+      <p>Comparer deux modes de modulation du VCO à l'aide d'un switch SPDT.</p>
+      <ul>
+        <li>Mode Arpège : modulation carrée directe.</li>
+        <li>Mode Vibrato : modulation adoucie par un filtre RC.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Lien permanent sécurité</h2>
+      <div class="actions">
+        <a class="btn-secondary" href="../../ressources/securite-atelier.html">Ressources &gt; Sécurité atelier</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Principe général</h2>
+      <p>On conserve l'architecture des étapes précédentes :</p>
+      <ul>
+        <li>NE555 n°1 : VCO (audio)</li>
+        <li>NE555 n°2 : LFO (modulation)</li>
+      </ul>
+      <p>Le switch SPDT choisit la manière dont le LFO pilote le point de modulation du VCO.</p>
+    </section>
+
+    <section class="card">
+      <h2>Mode 1 : Arpège (modulation carrée directe)</h2>
+      <p>Le signal carré du LFO est envoyé directement vers le point de modulation.</p>
+      <ul>
+        <li>Sauts instantanés entre deux niveaux de fréquence</li>
+        <li>Deux notes distinctes bien marquées</li>
+        <li>Rendu 8-bit / séquenceur binaire</li>
+      </ul>
+      <p class="formula">LFO carré → modulation VCO (direct)</p>
+    </section>
+
+    <section class="card">
+      <h2>Mode 2 : Vibrato (modulation adoucie)</h2>
+      <p>Le signal LFO passe d'abord dans un filtre RC, puis arrive sur le point de modulation.</p>
+      <ul>
+        <li>Transitions non abruptes</li>
+        <li>Signal plus arrondi (quasi triangulaire/exponentiel)</li>
+        <li>Variation continue de fréquence</li>
+      </ul>
+      <p>Effets obtenus : vibrato, sirène, modulation douce.</p>
+      <p class="formula">LFO carré → R → C → modulation VCO</p>
+    </section>
+
+    <section class="card">
+      <h2>Implémentation simple avec un SPDT</h2>
+      <ol>
+        <li>Borne commune du switch vers le point de modulation du VCO.</li>
+        <li>Position 1 du switch : sortie LFO directe.</li>
+        <li>Position 2 du switch : sortie LFO via réseau RC.</li>
+      </ol>
+      <p class="muted">Un simple RC inséré par le switch suffit pour changer radicalement le caractère sonore.</p>
+    </section>
+
+    <section class="card">
+      <h2>Ce que l'élève apprend</h2>
+      <ul>
+        <li>Différence entre modulation discrète (digital feel) et modulation continue (analogique).</li>
+        <li>Impact de la forme d'onde sur la perception sonore.</li>
+        <li>Rôle du filtrage RC et de la constante de temps τ = R × C.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Expériences proposées</h2>
+      <h3>Varier le condensateur du filtre</h3>
+      <ul>
+        <li>Petit C : vibrato rapide, plus nerveux.</li>
+        <li>Grand C : glissando lent, plus doux.</li>
+      </ul>
+
+      <h3>Varier la vitesse du LFO</h3>
+      <ul>
+        <li>Lent : deux notes distinctes en mode Arpège.</li>
+        <li>Moyen : trille ou vibrato appuyé.</li>
+        <li>Rapide : texture plus métallique.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Tableau comparatif rapide</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Mode</th>
+              <th>Chemin de modulation</th>
+              <th>Forme perçue</th>
+              <th>Rendu sonore</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Arpège</td><td>LFO direct</td><td>Carrée, transitions nettes</td><td>Deux hauteurs franches</td></tr>
+            <tr><td>Vibrato</td><td>LFO + RC</td><td>Arrondie, transitions progressives</td><td>Variation continue de hauteur</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Valeur pédagogique</h2>
+      <p>Cette étape relie électronique analogique, traitement du signal et synthèse sonore. C'est un bonus idéal après le clavier, car l'élève entend immédiatement la différence entre « commuter » une valeur et « filtrer » une variation.</p>
+    </section>
+
+    <div class="actions">
+      <a class="btn-secondary" href="step-3-keyboard-24-notes/">Retour : Étape 3</a>
+      <a class="btn-primary" href="../punk-console/">Retour au module Punk Console</a>
+    </div>
+  </main>
+</body>
+</html>

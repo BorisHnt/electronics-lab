@@ -27,6 +27,7 @@
       'step-1-single-ne555-1pot.html': 'modules',
       'step-2-double-ne555-lfo.html': 'modules',
       'step-3-keyboard-24-notes.html': 'modules',
+      'step-4-switch-arp-vib.html': 'modules',
       'theorie.html': 'theorie',
       'outils.html': 'outils',
       'ressources.html': 'ressources',
