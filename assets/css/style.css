@@ -391,6 +391,58 @@ main .container > .card + .card {
   margin-top: var(--space-2);
 }
 
+.prose h3 {
+  margin-top: var(--space-2);
+  margin-bottom: var(--space-1);
+  color: var(--color-primary);
+}
+
+.prose ul,
+.prose ol {
+  margin-top: 0;
+  margin-bottom: var(--space-2);
+  padding-left: 22px;
+}
+
+.prose li + li {
+  margin-top: 4px;
+}
+
+.formula {
+  font-family: var(--font-headings);
+  background: #111315;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-button);
+  padding: 10px 12px;
+}
+
+.schema-grid {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: 1fr;
+  margin-bottom: var(--space-3);
+}
+
+.schema-card {
+  margin: 0;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-card);
+  background: #111315;
+  padding: var(--space-2);
+}
+
+.schema-svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.schema-caption {
+  margin-top: var(--space-1);
+  color: var(--color-muted);
+  font-size: 0.9rem;
+}
+
 .table-wrap {
   overflow-x: auto;
 }
@@ -547,6 +599,10 @@ th {
 
 @media (min-width: 720px) {
   .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .schema-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
