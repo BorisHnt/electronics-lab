@@ -1,0 +1,162 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electronics Lab | Punk Console | Étape 2</title>
+  <meta name="description" content="Punk Console étape 2 : ajout d'un second NE555 en LFO pour moduler le VCO.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script defer src="../../assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../../index.html">Electronics Lab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay" id="site-menu" role="navigation" aria-label="Navigation principale" aria-hidden="true">
+    <ul class="nav-list" role="list">
+      <li><a class="nav-item" data-nav="index" href="../../index.html">Accueil</a></li>
+      <li><a class="nav-item" data-nav="modules" href="../../modules.html">Modules</a></li>
+      <li><a class="nav-item" data-nav="theorie" href="../../theorie.html">Théorie</a></li>
+      <li>
+        <a class="nav-item" data-nav="outils" href="../../outils.html">Outils</a>
+        <ul class="nav-submenu" role="list" hidden>
+          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="../../outils/couleurs-resistance.html">Couleurs résistance</a></li>
+          <li><a class="nav-subitem" data-nav="loi-ohm" href="../../outils/loi-ohm.html">Calcul loi d'Ohm</a></li>
+        </ul>
+      </li>
+      <li><a class="nav-item" data-nav="ressources" href="../../ressources.html">Ressources</a></li>
+      <li><a class="nav-item" data-nav="a-propos" href="../../a-propos.html">À propos</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../../index.html">Accueil</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../../modules.html">Modules</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../punk-console/">Punk Console</a>
+      <span aria-hidden="true">&gt;</span>
+      <span>Étape 2</span>
+    </nav>
+
+    <section class="page-header">
+      <h1>Étape 2 : 2× NE555 (LFO → modulation du VCO)</h1>
+      <p>Ajouter un oscillateur lent pour moduler le VCO et obtenir des effets vivants : vibrato, trille, sirène.</p>
+    </section>
+
+    <section class="card">
+      <h2>Lien permanent sécurité</h2>
+      <div class="actions">
+        <a class="btn-secondary" href="../../ressources/securite-atelier.html">Ressources &gt; Sécurité atelier</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Objectif</h2>
+      <p>Introduire la modulation en utilisant un second NE555 en astable lent (LFO) qui agit sur le VCO audible.</p>
+      <ul>
+        <li>VCO : oscillateur dans la bande audio.</li>
+        <li>LFO : oscillateur lent (quelques Hz à dizaines de Hz).</li>
+        <li>Modulation : variation d'un paramètre du VCO au cours du temps.</li>
+      </ul>
+    </section>
+
+    <section class="grid" aria-label="Avant et après l'ajout du LFO">
+      <article class="card">
+        <h3>Avant (étape 1)</h3>
+        <p class="formula">Potentiomètre manuel → RC du VCO → fréquence fixe à l'instant t</p>
+      </article>
+      <article class="card">
+        <h3>Après (étape 2)</h3>
+        <p class="formula">LFO + profondeur de modulation → paramètre du VCO varie dans le temps</p>
+      </article>
+    </section>
+
+    <section class="card">
+      <h2>Ce que l'élève ajoute</h2>
+      <ul>
+        <li>Un second NE555 en astable lent (LFO).</li>
+        <li>Un potentiomètre pour la vitesse du LFO.</li>
+        <li>Un potentiomètre pour la profondeur de modulation.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Options de modulation à tester</h2>
+      <h3>A) FM simple (option recommandée)</h3>
+      <p>Injecter le signal LFO sur la broche CONTROL (pin 5) du VCO via un réseau résistance/condensateur.</p>
+      <p>Effet : les seuils internes bougent, la fréquence « flotte » autour de la valeur centrale.</p>
+
+      <h3>B) Modulation par « pull » du timing</h3>
+      <p>Le LFO modifie la résistance effective du réseau RC du VCO.</p>
+      <p>Effet : très pédagogique, mais plus sensible aux réglages extrêmes et aux instabilités.</p>
+    </section>
+
+    <section class="card">
+      <h2>Vibrato vs trémolo</h2>
+      <ul>
+        <li>Vibrato : modulation de fréquence (hauteur).</li>
+        <li>Trémolo : modulation d'amplitude (volume).</li>
+      </ul>
+      <p class="muted">Dans cette étape, vous travaillez surtout le vibrato via la fréquence du VCO.</p>
+    </section>
+
+    <section class="card">
+      <h2>Expériences guidées</h2>
+      <ul>
+        <li>LFO lent : effet sirène / balayage.</li>
+        <li>LFO moyen : vibrato musical.</li>
+        <li>LFO rapide : textures rugueuses (ring-ish).</li>
+        <li>Modulation trop forte : perte de stabilité, sauts de fréquence ou saturation de l'effet.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Tableau vitesse LFO → sensation</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Vitesse LFO</th>
+              <th>Sensation perçue</th>
+              <th>Usage</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>0,2 à 1 Hz</td><td>Très lent, balayage large</td><td>Sirène / effet dramatique</td></tr>
+            <tr><td>2 à 6 Hz</td><td>Vibrato naturel</td><td>Jeu mélodique simple</td></tr>
+            <tr><td>7 à 12 Hz</td><td>Trille serré</td><td>Texture nerveuse</td></tr>
+            <tr><td>15 Hz et plus</td><td>Grain rugueux</td><td>Effets expérimentaux</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Liste des composants (ajouts étape 2)</h2>
+      <ul>
+        <li>1 × NE555 supplémentaire (LFO)</li>
+        <li>1 × potentiomètre vitesse LFO</li>
+        <li>1 × potentiomètre profondeur</li>
+        <li>Résistances et condensateurs de timing LFO</li>
+        <li>Condensateurs de découplage pour le second NE555</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>À quoi sert un LFO ?</h2>
+      <p>Un LFO automatise un réglage que vous feriez à la main. Au lieu de tourner le potentiomètre de pitch en continu, le LFO le fait pour vous, avec une vitesse et une profondeur contrôlables.</p>
+    </section>
+
+    <div class="actions">
+      <a class="btn-secondary" href="step-1-single-ne555-1pot/">Retour : Étape 1</a>
+      <a class="btn-primary" href="step-3-keyboard-24-notes/">Étape suivante : clavier 24 notes</a>
+    </div>
+  </main>
+</body>
+</html>

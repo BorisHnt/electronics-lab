@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electronics Lab | Punk Console (NE555)</title>
+  <meta name="description" content="Module Punk Console : VCO NE555, modulation LFO et clavier 24 notes accordable.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script defer src="../assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">Electronics Lab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay" id="site-menu" role="navigation" aria-label="Navigation principale" aria-hidden="true">
+    <ul class="nav-list" role="list">
+      <li><a class="nav-item" data-nav="index" href="../index.html">Accueil</a></li>
+      <li><a class="nav-item" data-nav="modules" href="../modules.html">Modules</a></li>
+      <li><a class="nav-item" data-nav="theorie" href="../theorie.html">Théorie</a></li>
+      <li>
+        <a class="nav-item" data-nav="outils" href="../outils.html">Outils</a>
+        <ul class="nav-submenu" role="list" hidden>
+          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="../outils/couleurs-resistance.html">Couleurs résistance</a></li>
+          <li><a class="nav-subitem" data-nav="loi-ohm" href="../outils/loi-ohm.html">Calcul loi d'Ohm</a></li>
+        </ul>
+      </li>
+      <li><a class="nav-item" data-nav="ressources" href="../ressources.html">Ressources</a></li>
+      <li><a class="nav-item" data-nav="a-propos" href="../a-propos.html">À propos</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../index.html">Accueil</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../modules.html">Modules</a>
+      <span aria-hidden="true">&gt;</span>
+      <span>Punk Console (NE555)</span>
+    </nav>
+
+    <section class="page-header">
+      <h1>Punk Console (NE555)</h1>
+      <p>Parcours guidé pour construire un mini instrument électronique : oscillateur audible, modulation LFO puis clavier 24 notes.</p>
+    </section>
+
+    <section class="card">
+      <h2>Parcours du module</h2>
+      <p>Ce module se suit dans l'ordre. Chaque page se termine avec un bouton pour passer à l'étape suivante.</p>
+      <div class="actions">
+        <a class="btn-secondary" href="../ressources/securite-atelier.html">Ressource permanente : Sécurité atelier</a>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Étapes du module Punk Console">
+      <article class="card">
+        <h3>1. Introduction</h3>
+        <p>Objectifs, prérequis, architecture générale et méthode de progression.</p>
+        <a class="btn-secondary" href="punk-console/intro/">Ouvrir</a>
+      </article>
+
+      <article class="card">
+        <h3>2. Étape 1 : 1× NE555 + 1 potentiomètre</h3>
+        <p>Construire un VCO manuel en astable et comprendre la relation RC → fréquence.</p>
+        <a class="btn-secondary" href="punk-console/step-1-single-ne555-1pot/">Ouvrir</a>
+      </article>
+
+      <article class="card">
+        <h3>3. Étape 2 : 2× NE555 (LFO → VCO)</h3>
+        <p>Ajouter un oscillateur lent pour moduler le VCO et créer des textures sonores.</p>
+        <a class="btn-secondary" href="punk-console/step-2-double-ne555-lfo/">Ouvrir</a>
+      </article>
+
+      <article class="card">
+        <h3>4. Étape 3 : clavier 24 notes</h3>
+        <p>Passer au mode instrument : sélection de notes, accordage, progression logarithmique.</p>
+        <a class="btn-secondary" href="punk-console/step-3-keyboard-24-notes/">Ouvrir</a>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

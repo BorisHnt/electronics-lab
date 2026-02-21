@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electronics Lab | Punk Console | Étape 3</title>
+  <meta name="description" content="Punk Console étape 3 : clavier 24 notes avec réglage fin par trimmer et guide d'accordage.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script defer src="../../assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../../index.html">Electronics Lab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay" id="site-menu" role="navigation" aria-label="Navigation principale" aria-hidden="true">
+    <ul class="nav-list" role="list">
+      <li><a class="nav-item" data-nav="index" href="../../index.html">Accueil</a></li>
+      <li><a class="nav-item" data-nav="modules" href="../../modules.html">Modules</a></li>
+      <li><a class="nav-item" data-nav="theorie" href="../../theorie.html">Théorie</a></li>
+      <li>
+        <a class="nav-item" data-nav="outils" href="../../outils.html">Outils</a>
+        <ul class="nav-submenu" role="list" hidden>
+          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="../../outils/couleurs-resistance.html">Couleurs résistance</a></li>
+          <li><a class="nav-subitem" data-nav="loi-ohm" href="../../outils/loi-ohm.html">Calcul loi d'Ohm</a></li>
+        </ul>
+      </li>
+      <li><a class="nav-item" data-nav="ressources" href="../../ressources.html">Ressources</a></li>
+      <li><a class="nav-item" data-nav="a-propos" href="../../a-propos.html">À propos</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../../index.html">Accueil</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../../modules.html">Modules</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../punk-console/">Punk Console</a>
+      <span aria-hidden="true">&gt;</span>
+      <span>Étape 3</span>
+    </nav>
+
+    <section class="page-header">
+      <h1>Étape 3 : clavier 24 notes avec réglages</h1>
+      <p>Transformer le générateur sonore en instrument jouable et comprendre l'accordage en progression géométrique.</p>
+    </section>
+
+    <section class="card">
+      <h2>Lien permanent sécurité</h2>
+      <div class="actions">
+        <a class="btn-secondary" href="../../ressources/securite-atelier.html">Ressources &gt; Sécurité atelier</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Objectif</h2>
+      <p>Créer un clavier de 24 touches (14 blanches, 10 noires) où chaque note est réglable pour compenser les tolérances réelles des composants.</p>
+    </section>
+
+    <section class="card">
+      <h2>Architecture pratique recommandée</h2>
+      <ul>
+        <li>24 chemins de résistances sélectionnables : un trimmer par note.</li>
+        <li>Chaque touche connecte sa note dans le chemin de timing du VCO.</li>
+        <li>Bus commun propre pour la sélection des notes.</li>
+        <li>Option : potentiomètre global « transpose » en série pour déplacer toute la plage.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Ce qu'il faut comprendre</h2>
+      <ul>
+        <li>Les notes suivent une loi logarithmique : ×2 sur une octave.</li>
+        <li>Un demi-ton vaut environ un facteur ×2^(1/12).</li>
+        <li>Sur ce montage, la fréquence varie approximativement comme 1/R.</li>
+        <li>Les résistances doivent donc suivre une progression géométrique pour rester justes.</li>
+        <li>Les trimmers par touche permettent l'accordage fin malgré les tolérances.</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Guide d'accordage (procédure)</h2>
+      <ol>
+        <li>Choisissez une référence (ex : A4 = 440 Hz) avec un tuner sur smartphone.</li>
+        <li>Réglez une note de base au centre du clavier.</li>
+        <li>Accordez ensuite les notes voisines en montant puis en descendant.</li>
+        <li>Revenez régulièrement à la note de base pour compenser les interactions.</li>
+        <li>Vérifiez une octave complète puis la seconde octave.</li>
+        <li>Laissez stabiliser 1 à 2 minutes et faites une passe finale.</li>
+      </ol>
+    </section>
+
+    <section class="card">
+      <h2>Liste des composants (ajouts étape 3)</h2>
+      <ul>
+        <li>24 × trimmers (ou potentiomètres multi-tours selon précision voulue)</li>
+        <li>24 × interrupteurs/touches momentané(e)s</li>
+        <li>Résistances de garde pour limiter les extrêmes de fréquence</li>
+        <li>Fils pour bus commun et organisation propre des retours GND</li>
+        <li>Option : 1 × potentiomètre « transpose »</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Tableau des fréquences cibles (24 notes)</h2>
+      <p class="muted">Référence A4 = 440 Hz, de C4 à B5.</p>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Note</th>
+              <th>Fréquence</th>
+              <th>Note</th>
+              <th>Fréquence</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>C4</td><td>261,63 Hz</td><td>C5</td><td>523,25 Hz</td></tr>
+            <tr><td>C#4 / Db4</td><td>277,18 Hz</td><td>C#5 / Db5</td><td>554,37 Hz</td></tr>
+            <tr><td>D4</td><td>293,66 Hz</td><td>D5</td><td>587,33 Hz</td></tr>
+            <tr><td>D#4 / Eb4</td><td>311,13 Hz</td><td>D#5 / Eb5</td><td>622,25 Hz</td></tr>
+            <tr><td>E4</td><td>329,63 Hz</td><td>E5</td><td>659,25 Hz</td></tr>
+            <tr><td>F4</td><td>349,23 Hz</td><td>F5</td><td>698,46 Hz</td></tr>
+            <tr><td>F#4 / Gb4</td><td>369,99 Hz</td><td>F#5 / Gb5</td><td>739,99 Hz</td></tr>
+            <tr><td>G4</td><td>392,00 Hz</td><td>G5</td><td>783,99 Hz</td></tr>
+            <tr><td>G#4 / Ab4</td><td>415,30 Hz</td><td>G#5 / Ab5</td><td>830,61 Hz</td></tr>
+            <tr><td>A4</td><td>440,00 Hz</td><td>A5</td><td>880,00 Hz</td></tr>
+            <tr><td>A#4 / Bb4</td><td>466,16 Hz</td><td>A#5 / Bb5</td><td>932,33 Hz</td></tr>
+            <tr><td>B4</td><td>493,88 Hz</td><td>B5</td><td>987,77 Hz</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Expériences conseillées</h2>
+      <ul>
+        <li>Accorder une octave complète, puis vérifier la seconde.</li>
+        <li>Comparer accordage théorique et accordage « à l'oreille ».</li>
+        <li>Observer l'influence de la température et de l'alimentation.</li>
+        <li>Tester la fonction transpose si elle est câblée.</li>
+      </ul>
+    </section>
+
+    <div class="actions">
+      <a class="btn-secondary" href="step-2-double-ne555-lfo/">Retour : Étape 2</a>
+      <a class="btn-primary" href="../punk-console/">Retour au module Punk Console</a>
+    </div>
+  </main>
+</body>
+</html>

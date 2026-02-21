@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electronics Lab | Punk Console | Introduction</title>
+  <meta name="description" content="Introduction du module Punk Console : objectifs pédagogiques, prérequis et plan des étapes.">
+  <link rel="stylesheet" href="../../assets/css/style.css">
+  <script defer src="../../assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../../index.html">Electronics Lab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay" id="site-menu" role="navigation" aria-label="Navigation principale" aria-hidden="true">
+    <ul class="nav-list" role="list">
+      <li><a class="nav-item" data-nav="index" href="../../index.html">Accueil</a></li>
+      <li><a class="nav-item" data-nav="modules" href="../../modules.html">Modules</a></li>
+      <li><a class="nav-item" data-nav="theorie" href="../../theorie.html">Théorie</a></li>
+      <li>
+        <a class="nav-item" data-nav="outils" href="../../outils.html">Outils</a>
+        <ul class="nav-submenu" role="list" hidden>
+          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="../../outils/couleurs-resistance.html">Couleurs résistance</a></li>
+          <li><a class="nav-subitem" data-nav="loi-ohm" href="../../outils/loi-ohm.html">Calcul loi d'Ohm</a></li>
+        </ul>
+      </li>
+      <li><a class="nav-item" data-nav="ressources" href="../../ressources.html">Ressources</a></li>
+      <li><a class="nav-item" data-nav="a-propos" href="../../a-propos.html">À propos</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../../index.html">Accueil</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../../modules.html">Modules</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../punk-console/">Punk Console</a>
+      <span aria-hidden="true">&gt;</span>
+      <span>Introduction</span>
+    </nav>
+
+    <section class="page-header">
+      <h1>Introduction</h1>
+      <p>Ce module transforme un oscillateur NE555 en mini instrument contrôlable, puis accordable sur 24 notes.</p>
+    </section>
+
+    <section class="card">
+      <h2>Objectifs pédagogiques</h2>
+      <ul>
+        <li>Comprendre le fonctionnement d'un NE555 en astable.</li>
+        <li>Relier les composants RC à la fréquence perçue.</li>
+        <li>Introduire la modulation avec un LFO.</li>
+        <li>Découvrir l'accordage musical (progression logarithmique).</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>Prérequis et sécurité</h2>
+      <p>Avant de démarrer, vérifiez vos polarités, limitez le courant de l'alimentation et contrôlez les connexions de la breadboard.</p>
+      <div class="actions">
+        <a class="btn-secondary" href="../../ressources/securite-atelier.html">Lire Sécurité atelier</a>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Plan des étapes</h2>
+      <ol>
+        <li>Étape 1 : VCO manuel avec 1 NE555 et 1 potentiomètre.</li>
+        <li>Étape 2 : ajout d'un LFO (2e NE555) pour moduler le VCO.</li>
+        <li>Étape 3 : clavier 24 notes avec trimmers d'accordage.</li>
+      </ol>
+      <p class="muted">Chaque étape contient une liste de composants, les points de compréhension et les erreurs fréquentes.</p>
+    </section>
+
+    <section class="card">
+      <h2>Résultat final attendu</h2>
+      <p>Un instrument simple mais expressif : fréquence de base réglable, modulation contrôlée, et notes sélectionnables avec possibilité d'accordage fin.</p>
+    </section>
+
+    <div class="actions">
+      <a class="btn-primary" href="step-1-single-ne555-1pot/">Étape suivante : 1× NE555 + 1 potentiomètre</a>
+    </div>
+  </main>
+</body>
+</html>

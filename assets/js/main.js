@@ -22,6 +22,11 @@
     var topLevelMap = {
       'index.html': 'index',
       'modules.html': 'modules',
+      'punk-console.html': 'modules',
+      'intro.html': 'modules',
+      'step-1-single-ne555-1pot.html': 'modules',
+      'step-2-double-ne555-lfo.html': 'modules',
+      'step-3-keyboard-24-notes.html': 'modules',
       'theorie.html': 'theorie',
       'outils.html': 'outils',
       'ressources.html': 'ressources',
