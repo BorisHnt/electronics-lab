@@ -146,29 +146,39 @@
       <p>Autrement dit, l'énergie fournie par la source est entièrement absorbée par les composants passifs.</p>
 
       <figure class="schema-card">
-        <svg class="schema-svg" viewBox="0 0 380 170" role="img" aria-label="Schéma KVL avec source et deux résistances en maille">
-          <line x1="45" y1="30" x2="320" y2="30" stroke="#a8b0b3" stroke-width="3"></line>
-          <line x1="320" y1="30" x2="320" y2="130" stroke="#a8b0b3" stroke-width="3"></line>
-          <line x1="320" y1="130" x2="45" y2="130" stroke="#a8b0b3" stroke-width="3"></line>
-          <line x1="45" y1="130" x2="45" y2="92" stroke="#a8b0b3" stroke-width="3"></line>
-          <line x1="45" y1="68" x2="45" y2="30" stroke="#a8b0b3" stroke-width="3"></line>
+        <svg class="schema-svg" viewBox="0 0 420 190" role="img" aria-label="Schéma KVL avec source et deux résistances en maille">
+          <line x1="70" y1="45" x2="160" y2="45" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="260" y1="45" x2="350" y2="45" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="350" y1="45" x2="350" y2="145" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="350" y1="145" x2="260" y2="145" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="160" y1="145" x2="70" y2="145" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="70" y1="45" x2="70" y2="76" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="70" y1="114" x2="70" y2="145" stroke="#a8b0b3" stroke-width="3"></line>
 
-          <line x1="36" y1="92" x2="54" y2="92" stroke="#e46116" stroke-width="3"></line>
-          <line x1="30" y1="68" x2="60" y2="68" stroke="#e46116" stroke-width="3"></line>
-          <text x="18" y="82" fill="#e46116" font-size="12">−</text>
-          <text x="18" y="60" fill="#e46116" font-size="12">+</text>
-          <text x="74" y="82" fill="#e46116" font-size="13">Usource</text>
+          <line x1="52" y1="82" x2="88" y2="82" stroke="#e46116" stroke-width="3"></line>
+          <line x1="58" y1="98" x2="82" y2="98" stroke="#e46116" stroke-width="3"></line>
+          <text x="42" y="86" fill="#e46116" font-size="12">+</text>
+          <text x="42" y="102" fill="#e46116" font-size="12">−</text>
+          <text x="95" y="93" fill="#e46116" font-size="13">Usource</text>
 
-          <rect x="132" y="18" width="52" height="24" fill="none" stroke="#00c853" stroke-width="3"></rect>
-          <text x="158" y="15" fill="#00c853" text-anchor="middle" font-size="12">R1</text>
-          <rect x="205" y="118" width="52" height="24" fill="none" stroke="#00c853" stroke-width="3"></rect>
-          <text x="231" y="158" fill="#00c853" text-anchor="middle" font-size="12">R2</text>
+          <rect x="160" y="33" width="100" height="24" rx="4" fill="none" stroke="#00c853" stroke-width="3"></rect>
+          <text x="210" y="28" fill="#00c853" text-anchor="middle" font-size="12">R1</text>
+          <rect x="160" y="133" width="100" height="24" rx="4" fill="none" stroke="#00c853" stroke-width="3"></rect>
+          <text x="210" y="174" fill="#00c853" text-anchor="middle" font-size="12">R2</text>
 
-          <path d="M95 52 C125 5, 250 5, 280 52" fill="none" stroke="#00c853" stroke-width="2"></path>
-          <polygon points="275,46 287,50 278,59" fill="#00c853"></polygon>
-          <text x="188" y="18" fill="#00c853" text-anchor="middle" font-size="12">I (sens de maille)</text>
+          <line x1="330" y1="78" x2="330" y2="112" stroke="#00c853" stroke-width="2"></line>
+          <polygon points="324,106 330,116 336,106" fill="#00c853"></polygon>
+          <text x="340" y="97" fill="#00c853" font-size="12">I</text>
 
-          <text x="188" y="88" fill="#e6e6e6" text-anchor="middle" font-size="14">+Usource − UR1 − UR2 = 0</text>
+          <line x1="172" y1="64" x2="248" y2="64" stroke="#e46116" stroke-width="2"></line>
+          <polygon points="242,58 252,64 242,70" fill="#e46116"></polygon>
+          <text x="210" y="78" fill="#e46116" text-anchor="middle" font-size="12">UR1</text>
+
+          <line x1="248" y1="126" x2="172" y2="126" stroke="#e46116" stroke-width="2"></line>
+          <polygon points="178,120 168,126 178,132" fill="#e46116"></polygon>
+          <text x="210" y="120" fill="#e46116" text-anchor="middle" font-size="12">UR2</text>
+
+          <text x="210" y="98" fill="#e6e6e6" text-anchor="middle" font-size="14">+Usource − UR1 − UR2 = 0</text>
         </svg>
         <figcaption class="schema-caption">KVL en une phrase : en faisant le tour d'une boucle, les hausses et chutes de tension se compensent exactement.</figcaption>
       </figure>
