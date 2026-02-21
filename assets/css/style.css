@@ -415,6 +415,113 @@ th {
   color: var(--color-primary);
 }
 
+.table-swatch {
+  width: 20px;
+  height: 20px;
+  border-radius: 4px;
+  border: 1px solid rgba(168, 176, 179, 0.45);
+  display: inline-block;
+}
+
+.table-wrap th:first-child,
+.table-wrap td:first-child {
+  text-align: center;
+}
+
+.resistor-form {
+  display: grid;
+  gap: var(--space-2);
+  margin-top: var(--space-2);
+}
+
+.combo-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.combo-row select {
+  flex: 1;
+}
+
+.combo-swatch {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  border: 1px solid rgba(168, 176, 179, 0.45);
+  flex: 0 0 auto;
+}
+
+.resistor-visual {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-top: var(--space-3);
+}
+
+.resistor-wire {
+  display: block;
+  height: 4px;
+  flex: 1;
+  background: rgba(168, 176, 179, 0.55);
+}
+
+.resistor-body-shape {
+  width: min(520px, 72vw);
+  min-height: 88px;
+  border-radius: 999px;
+  border: 1px solid rgba(168, 176, 179, 0.45);
+  background: #2a2d30;
+  padding: 10px 20px;
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.resistor-band {
+  display: block;
+  width: 16px;
+  min-width: 16px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+.band-tolerance {
+  margin-left: 18px;
+}
+
+.resistor-band.is-hidden {
+  width: 0;
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  opacity: 0;
+}
+
+.color-black { background: #111111; }
+.color-brown { background: #6d3d14; }
+.color-red { background: #b3261e; }
+.color-orange { background: #e06c00; }
+.color-yellow { background: #caa800; }
+.color-green { background: #1f8f4b; }
+.color-blue { background: #1e5db3; }
+.color-violet { background: #7a38a2; }
+.color-gray { background: #6f767a; }
+.color-white { background: #f0f0f0; }
+.color-gold { background: #ba9c3b; }
+.color-silver { background: #b6bec4; }
+.color-none { background: transparent; }
+
+.combo-swatch.color-white,
+.table-swatch.color-white {
+  border-color: rgba(13, 15, 16, 0.65);
+}
+
+.combo-swatch.color-none {
+  border-style: dashed;
+}
+
 @media (min-width: 720px) {
   .grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -426,6 +533,14 @@ th {
 
   .calc-grid .actions,
   .calc-grid .result-box {
+    grid-column: 1 / -1;
+  }
+
+  .resistor-form {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .resistor-form .actions {
     grid-column: 1 / -1;
   }
 }

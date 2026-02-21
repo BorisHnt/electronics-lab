@@ -255,7 +255,206 @@
     }
   }
 
+  function setupResistorColorCalculator() {
+    var form = document.getElementById('resistor-color-form');
+    if (!form) {
+      return;
+    }
+
+    var bandCount = document.getElementById('band-count');
+    var band1Select = document.getElementById('band1-select');
+    var band2Select = document.getElementById('band2-select');
+    var band3Select = document.getElementById('band3-select');
+    var multiplierSelect = document.getElementById('multiplier-select');
+    var toleranceSelect = document.getElementById('tolerance-select');
+    var band3Field = document.getElementById('band3-field');
+    var resetButton = document.getElementById('resistor-reset');
+    var result = document.getElementById('resistor-result');
+
+    var band1Preview = document.getElementById('band1-preview');
+    var band2Preview = document.getElementById('band2-preview');
+    var band3Preview = document.getElementById('band3-preview');
+    var multiplierPreview = document.getElementById('multiplier-preview');
+    var tolerancePreview = document.getElementById('tolerance-preview');
+
+    var band1Visual = document.querySelector('.band-digit1');
+    var band2Visual = document.querySelector('.band-digit2');
+    var band3Visual = document.querySelector('.band-digit3');
+    var multiplierVisual = document.querySelector('.band-multiplier');
+    var toleranceVisual = document.querySelector('.band-tolerance');
+
+    var colorData = {
+      black: { label: 'Noir', digit: 0, multiplier: 1 },
+      brown: { label: 'Marron', digit: 1, multiplier: 10, tolerance: 1 },
+      red: { label: 'Rouge', digit: 2, multiplier: 100, tolerance: 2 },
+      orange: { label: 'Orange', digit: 3, multiplier: 1000 },
+      yellow: { label: 'Jaune', digit: 4, multiplier: 10000 },
+      green: { label: 'Vert', digit: 5, multiplier: 100000, tolerance: 0.5 },
+      blue: { label: 'Bleu', digit: 6, multiplier: 1000000, tolerance: 0.25 },
+      violet: { label: 'Violet', digit: 7, multiplier: 10000000, tolerance: 0.1 },
+      gray: { label: 'Gris', digit: 8, multiplier: 100000000, tolerance: 0.05 },
+      white: { label: 'Blanc', digit: 9, multiplier: 1000000000 },
+      gold: { label: 'Or', multiplier: 0.1, tolerance: 5 },
+      silver: { label: 'Argent', multiplier: 0.01, tolerance: 10 },
+      none: { label: 'Aucune', tolerance: 20 }
+    };
+
+    var digitKeys = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'gray', 'white'];
+    var multiplierKeys = ['black', 'brown', 'red', 'orange', 'yellow', 'green', 'blue', 'violet', 'gray', 'white', 'gold', 'silver'];
+    var toleranceKeys = ['brown', 'red', 'green', 'blue', 'violet', 'gray', 'gold', 'silver', 'none'];
+    var defaults = {
+      bandCount: '4',
+      band1: 'brown',
+      band2: 'black',
+      band3: 'black',
+      multiplier: 'red',
+      tolerance: 'gold'
+    };
+
+    function clearColorClasses(element) {
+      if (!element) {
+        return;
+      }
+      element.className = element.className
+        .split(' ')
+        .filter(function (className) {
+          return className.indexOf('color-') !== 0;
+        })
+        .join(' ');
+    }
+
+    function applyColorClass(element, key) {
+      if (!element) {
+        return;
+      }
+      clearColorClasses(element);
+      element.classList.add('color-' + key);
+    }
+
+    function trimNumber(value) {
+      var rounded = Math.round(value * 1000) / 1000;
+      return String(rounded)
+        .replace(/\.0+$/, '')
+        .replace(/(\.\d*[1-9])0+$/, '$1');
+    }
+
+    function formatResistance(ohms) {
+      if (ohms >= 1000000000) {
+        return trimNumber(ohms / 1000000000) + ' GOhm';
+      }
+      if (ohms >= 1000000) {
+        return trimNumber(ohms / 1000000) + ' MOhm';
+      }
+      if (ohms >= 1000) {
+        return trimNumber(ohms / 1000) + ' kOhm';
+      }
+      return trimNumber(ohms) + ' Ohm';
+    }
+
+    function createOption(key, text) {
+      var option = document.createElement('option');
+      option.value = key;
+      option.textContent = text;
+      return option;
+    }
+
+    function populateSelect(select, keys, makeText) {
+      if (!select) {
+        return;
+      }
+      select.innerHTML = '';
+      keys.forEach(function (key) {
+        select.appendChild(createOption(key, makeText(colorData[key])));
+      });
+    }
+
+    function toggleBandCountUI() {
+      var isFiveBands = bandCount.value === '5';
+      band3Field.hidden = !isFiveBands;
+      if (band3Visual) {
+        band3Visual.classList.toggle('is-hidden', !isFiveBands);
+      }
+    }
+
+    function updateVisuals() {
+      applyColorClass(band1Preview, band1Select.value);
+      applyColorClass(band2Preview, band2Select.value);
+      applyColorClass(band3Preview, band3Select.value);
+      applyColorClass(multiplierPreview, multiplierSelect.value);
+      applyColorClass(tolerancePreview, toleranceSelect.value);
+
+      applyColorClass(band1Visual, band1Select.value);
+      applyColorClass(band2Visual, band2Select.value);
+      applyColorClass(band3Visual, band3Select.value);
+      applyColorClass(multiplierVisual, multiplierSelect.value);
+      applyColorClass(toleranceVisual, toleranceSelect.value);
+    }
+
+    function calculateResistance() {
+      var isFiveBands = bandCount.value === '5';
+      var digit1 = colorData[band1Select.value];
+      var digit2 = colorData[band2Select.value];
+      var digit3 = colorData[band3Select.value];
+      var multiplier = colorData[multiplierSelect.value];
+      var tolerance = colorData[toleranceSelect.value];
+
+      var significant = isFiveBands
+        ? (digit1.digit * 100 + digit2.digit * 10 + digit3.digit)
+        : (digit1.digit * 10 + digit2.digit);
+      var resistance = significant * multiplier.multiplier;
+      var toleranceValue = tolerance.tolerance;
+
+      result.classList.remove('is-error');
+      result.textContent = 'Valeur: ' + formatResistance(resistance) + ' +-' + toleranceValue + '%';
+    }
+
+    function refresh() {
+      toggleBandCountUI();
+      updateVisuals();
+      calculateResistance();
+    }
+
+    populateSelect(band1Select, digitKeys, function (meta) {
+      return meta.label + ' (' + meta.digit + ')';
+    });
+    populateSelect(band2Select, digitKeys, function (meta) {
+      return meta.label + ' (' + meta.digit + ')';
+    });
+    populateSelect(band3Select, digitKeys, function (meta) {
+      return meta.label + ' (' + meta.digit + ')';
+    });
+    populateSelect(multiplierSelect, multiplierKeys, function (meta) {
+      return meta.label + ' (x' + trimNumber(meta.multiplier) + ')';
+    });
+    populateSelect(toleranceSelect, toleranceKeys, function (meta) {
+      return meta.label + ' (+-' + meta.tolerance + '%)';
+    });
+
+    bandCount.value = defaults.bandCount;
+    band1Select.value = defaults.band1;
+    band2Select.value = defaults.band2;
+    band3Select.value = defaults.band3;
+    multiplierSelect.value = defaults.multiplier;
+    toleranceSelect.value = defaults.tolerance;
+    refresh();
+
+    form.addEventListener('change', refresh);
+
+    if (resetButton) {
+      resetButton.addEventListener('click', function () {
+        bandCount.value = defaults.bandCount;
+        band1Select.value = defaults.band1;
+        band2Select.value = defaults.band2;
+        band3Select.value = defaults.band3;
+        multiplierSelect.value = defaults.multiplier;
+        toleranceSelect.value = defaults.tolerance;
+        refresh();
+      });
+    }
+  }
+
   applyActiveMenuState();
   setupMenu();
   setupOhmCalculator();
+  setupResistorColorCalculator();
 })();

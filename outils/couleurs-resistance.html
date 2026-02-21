@@ -52,6 +52,7 @@
         <table>
           <thead>
             <tr>
+              <th>Apercu</th>
               <th>Couleur</th>
               <th>Chiffre</th>
               <th>Multiplicateur</th>
@@ -59,22 +60,95 @@
             </tr>
           </thead>
           <tbody>
-            <tr><td>Noir</td><td>0</td><td>x1</td><td>-</td></tr>
-            <tr><td>Marron</td><td>1</td><td>x10</td><td>+-1%</td></tr>
-            <tr><td>Rouge</td><td>2</td><td>x100</td><td>+-2%</td></tr>
-            <tr><td>Orange</td><td>3</td><td>x1k</td><td>-</td></tr>
-            <tr><td>Jaune</td><td>4</td><td>x10k</td><td>-</td></tr>
-            <tr><td>Vert</td><td>5</td><td>x100k</td><td>+-0.5%</td></tr>
-            <tr><td>Bleu</td><td>6</td><td>x1M</td><td>+-0.25%</td></tr>
-            <tr><td>Violet</td><td>7</td><td>x10M</td><td>+-0.1%</td></tr>
-            <tr><td>Gris</td><td>8</td><td>x100M</td><td>+-0.05%</td></tr>
-            <tr><td>Blanc</td><td>9</td><td>x1G</td><td>-</td></tr>
-            <tr><td>Or</td><td>-</td><td>x0.1</td><td>+-5%</td></tr>
-            <tr><td>Argent</td><td>-</td><td>x0.01</td><td>+-10%</td></tr>
+            <tr><td><span class="table-swatch color-black" aria-hidden="true"></span></td><td>Noir</td><td>0</td><td>x1</td><td>-</td></tr>
+            <tr><td><span class="table-swatch color-brown" aria-hidden="true"></span></td><td>Marron</td><td>1</td><td>x10</td><td>+-1%</td></tr>
+            <tr><td><span class="table-swatch color-red" aria-hidden="true"></span></td><td>Rouge</td><td>2</td><td>x100</td><td>+-2%</td></tr>
+            <tr><td><span class="table-swatch color-orange" aria-hidden="true"></span></td><td>Orange</td><td>3</td><td>x1k</td><td>-</td></tr>
+            <tr><td><span class="table-swatch color-yellow" aria-hidden="true"></span></td><td>Jaune</td><td>4</td><td>x10k</td><td>-</td></tr>
+            <tr><td><span class="table-swatch color-green" aria-hidden="true"></span></td><td>Vert</td><td>5</td><td>x100k</td><td>+-0.5%</td></tr>
+            <tr><td><span class="table-swatch color-blue" aria-hidden="true"></span></td><td>Bleu</td><td>6</td><td>x1M</td><td>+-0.25%</td></tr>
+            <tr><td><span class="table-swatch color-violet" aria-hidden="true"></span></td><td>Violet</td><td>7</td><td>x10M</td><td>+-0.1%</td></tr>
+            <tr><td><span class="table-swatch color-gray" aria-hidden="true"></span></td><td>Gris</td><td>8</td><td>x100M</td><td>+-0.05%</td></tr>
+            <tr><td><span class="table-swatch color-white" aria-hidden="true"></span></td><td>Blanc</td><td>9</td><td>x1G</td><td>-</td></tr>
+            <tr><td><span class="table-swatch color-gold" aria-hidden="true"></span></td><td>Or</td><td>-</td><td>x0.1</td><td>+-5%</td></tr>
+            <tr><td><span class="table-swatch color-silver" aria-hidden="true"></span></td><td>Argent</td><td>-</td><td>x0.01</td><td>+-10%</td></tr>
           </tbody>
         </table>
       </div>
       <p class="muted">Astuce: les deux premiers anneaux donnent la base, le troisieme applique le multiplicateur, le quatrieme indique la tolerance.</p>
+    </section>
+
+    <section class="card">
+      <h2>Decodeur de resistance</h2>
+      <p class="muted">Choisissez 4 ou 5 anneaux: le schema se met a jour et la valeur est calculee automatiquement.</p>
+
+      <form id="resistor-color-form" class="resistor-form" aria-label="Decodeur de resistance">
+        <div class="form-field">
+          <label for="band-count">Nombre d'anneaux</label>
+          <select id="band-count" name="band-count">
+            <option value="4">4 anneaux</option>
+            <option value="5">5 anneaux</option>
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="band1-select">Anneau 1 (chiffre)</label>
+          <div class="combo-row">
+            <select id="band1-select" name="band1"></select>
+            <span id="band1-preview" class="combo-swatch" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="band2-select">Anneau 2 (chiffre)</label>
+          <div class="combo-row">
+            <select id="band2-select" name="band2"></select>
+            <span id="band2-preview" class="combo-swatch" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="form-field" id="band3-field" hidden>
+          <label for="band3-select">Anneau 3 (chiffre)</label>
+          <div class="combo-row">
+            <select id="band3-select" name="band3"></select>
+            <span id="band3-preview" class="combo-swatch" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="multiplier-select">Multiplicateur</label>
+          <div class="combo-row">
+            <select id="multiplier-select" name="multiplier"></select>
+            <span id="multiplier-preview" class="combo-swatch" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="form-field">
+          <label for="tolerance-select">Tolerance</label>
+          <div class="combo-row">
+            <select id="tolerance-select" name="tolerance"></select>
+            <span id="tolerance-preview" class="combo-swatch" aria-hidden="true"></span>
+          </div>
+        </div>
+
+        <div class="actions">
+          <button id="resistor-reset" class="btn-secondary" type="button">Reinitialiser</button>
+        </div>
+      </form>
+
+      <div class="resistor-visual" aria-hidden="true">
+        <span class="resistor-wire"></span>
+        <div class="resistor-body-shape">
+          <span class="resistor-band band-digit1"></span>
+          <span class="resistor-band band-digit2"></span>
+          <span class="resistor-band band-digit3"></span>
+          <span class="resistor-band band-multiplier"></span>
+          <span class="resistor-band band-tolerance"></span>
+        </div>
+        <span class="resistor-wire"></span>
+      </div>
+
+      <p id="resistor-result" class="result-box" role="status" aria-live="polite">Valeur: 1 kOhm +-5%</p>
     </section>
   </main>
 </body>
