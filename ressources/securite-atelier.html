@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electronics Lab | Sécurité atelier</title>
+  <meta name="description" content="Cours sécurité atelier : vérifications, alimentation, multimètre, oscilloscope, ESD et checklist débutant.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script defer src="../assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">Electronics Lab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay" id="site-menu" role="navigation" aria-label="Navigation principale" aria-hidden="true">
+    <ul class="nav-list" role="list">
+      <li><a class="nav-item" data-nav="index" href="../index.html">Accueil</a></li>
+      <li><a class="nav-item" data-nav="modules" href="../modules.html">Modules</a></li>
+      <li><a class="nav-item" data-nav="theorie" href="../theorie.html">Théorie</a></li>
+      <li>
+        <a class="nav-item" data-nav="outils" href="../outils.html">Outils</a>
+        <ul class="nav-submenu" role="list" hidden>
+          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="../outils/couleurs-resistance.html">Couleurs résistance</a></li>
+          <li><a class="nav-subitem" data-nav="loi-ohm" href="../outils/loi-ohm.html">Calcul loi d'Ohm</a></li>
+        </ul>
+      </li>
+      <li><a class="nav-item" data-nav="ressources" href="../ressources.html">Ressources</a></li>
+      <li><a class="nav-item" data-nav="a-propos" href="../a-propos.html">À propos</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../index.html">Accueil</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../ressources.html">Ressources</a>
+      <span aria-hidden="true">&gt;</span>
+      <span>Sécurité atelier</span>
+    </nav>
+
+    <section class="page-header">
+      <h1>Sécurité atelier</h1>
+      <p>La sécurité en électronique concerne la protection de l'utilisateur autant que celle du matériel.</p>
+    </section>
+
+    <article class="card prose">
+      <p>La sécurité en électronique ne concerne pas uniquement les hautes tensions. Des erreurs simples en basse tension peuvent détruire des composants, provoquer des échauffements, ou endommager les instruments de mesure.</p>
+      <p>L'objectif est double : protéger l'utilisateur et protéger le matériel.</p>
+
+      <h2>1. Vérifications avant mise sous tension</h2>
+      <h3>Inspection visuelle</h3>
+      <p>Toujours effectuer une inspection complète du montage :</p>
+      <ul>
+        <li>Polarité des alimentations</li>
+        <li>Sens des diodes, LED et condensateurs électrolytiques</li>
+        <li>Orientation des circuits intégrés (repère détrompeur)</li>
+        <li>Absence de court-circuit entre rails d'alimentation</li>
+        <li>Qualité des connexions sur breadboard</li>
+      </ul>
+      <p>Un simple fil mal placé peut relier VCC et GND.</p>
+
+      <h3>Vérification des valeurs</h3>
+      <p>Contrôler :</p>
+      <ul>
+        <li>Valeur des résistances (code couleur ou mesure)</li>
+        <li>Tension maximale des condensateurs</li>
+        <li>Puissance admissible des résistances</li>
+        <li>Brochage réel du composant (datasheet)</li>
+      </ul>
+      <p>Ne jamais se fier uniquement à la couleur d'un composant.</p>
+
+      <h2>2. Utilisation correcte de l'alimentation de laboratoire</h2>
+      <p>Procédure recommandée :</p>
+      <ol>
+        <li>Alimentation éteinte</li>
+        <li>Réglage de la tension à 0 V</li>
+        <li>Réglage de la limitation de courant à une valeur basse</li>
+        <li>Connexion GND</li>
+        <li>Connexion VCC</li>
+        <li>Mise sous tension</li>
+        <li>Augmentation progressive de la tension</li>
+      </ol>
+      <p>Surveiller :</p>
+      <ul>
+        <li>Le courant consommé</li>
+        <li>L'échauffement des composants</li>
+        <li>Les odeurs anormales</li>
+      </ul>
+      <p>Si le courant atteint immédiatement la limite, couper.</p>
+
+      <h2>3. Limitation de courant : règle essentielle</h2>
+      <p>Lors du premier test d'un circuit :</p>
+      <ul>
+        <li>Toujours activer le courant limité</li>
+        <li>Choisir une valeur compatible avec le montage</li>
+        <li>Augmenter progressivement</li>
+      </ul>
+      <p>Cela évite de détruire :</p>
+      <ul>
+        <li>LED</li>
+        <li>Transistors</li>
+        <li>Circuits intégrés</li>
+        <li>Pistes fines</li>
+      </ul>
+
+      <h2>4. Bonnes pratiques avec le multimètre</h2>
+      <h3>Mesure de tension</h3>
+      <ul>
+        <li>Se fait en parallèle</li>
+        <li>Ne modifie pas le circuit</li>
+        <li>Vérifier le mode DC ou AC</li>
+      </ul>
+
+      <h3>Mesure de courant</h3>
+      <ul>
+        <li>Se fait en série</li>
+        <li>Nécessite d'ouvrir le circuit</li>
+        <li>Utiliser la borne ampèremètre correcte</li>
+      </ul>
+      <p>Erreur fréquente : mesurer une tension en mode courant provoque un court-circuit direct.</p>
+
+      <h3>Mesure de résistance</h3>
+      <p>Toujours hors tension. Sinon : mesure fausse ou multimètre endommagé.</p>
+      <p>Commencer par le calibre le plus élevé.</p>
+
+      <h2>5. Utilisation de l'oscilloscope</h2>
+      <ul>
+        <li>Connecter la masse de la sonde au GND du circuit</li>
+        <li>Vérifier le facteur x1 / x10</li>
+        <li>Éviter les longues boucles de masse</li>
+        <li>Ne jamais connecter la masse de l'oscilloscope sur un point non référencé</li>
+      </ul>
+      <p>Sur les oscilloscopes reliés à la terre, une mauvaise masse peut créer un court-circuit.</p>
+
+      <h2>6. Travail sur breadboard</h2>
+      <p>Risques courants :</p>
+      <ul>
+        <li>Rails d'alimentation coupés au milieu</li>
+        <li>Mauvais alignement des composants</li>
+        <li>Connexions instables</li>
+      </ul>
+      <p>Bonnes pratiques :</p>
+      <ul>
+        <li>Garder des fils courts</li>
+        <li>Séparer alimentation et signaux</li>
+        <li>Utiliser un code couleur (rouge = VCC, noir = GND)</li>
+      </ul>
+
+      <h2>7. Composants sensibles</h2>
+      <h3>LED</h3>
+      <p>Toujours utiliser une résistance de limitation. Ne jamais connecter directement à une alimentation.</p>
+
+      <h3>Condensateurs électrolytiques</h3>
+      <p>Respecter la polarité. Une inversion peut provoquer :</p>
+      <ul>
+        <li>Échauffement</li>
+        <li>Fuite</li>
+        <li>Explosion du boîtier</li>
+      </ul>
+
+      <h3>Circuits intégrés</h3>
+      <ul>
+        <li>Vérifier l'orientation</li>
+        <li>Éviter les décharges électrostatiques</li>
+        <li>Ne pas insérer sous tension</li>
+      </ul>
+
+      <h2>8. Décharges électrostatiques (ESD)</h2>
+      <p>Les MOSFET et circuits CMOS sont sensibles.</p>
+      <p>Mesures simples :</p>
+      <ul>
+        <li>Toucher une masse avant manipulation</li>
+        <li>Éviter les surfaces synthétiques</li>
+        <li>Stocker les composants dans des sachets antistatiques</li>
+      </ul>
+
+      <h2>9. Organisation du poste de travail</h2>
+      <p>Un poste propre réduit les erreurs :</p>
+      <ul>
+        <li>Un seul montage alimenté à la fois</li>
+        <li>Instruments disposés clairement</li>
+        <li>Composants triés par valeur</li>
+        <li>Aucun fil libre sous tension</li>
+      </ul>
+
+      <h2>10. Règles fondamentales</h2>
+      <ul>
+        <li>Ne jamais modifier un circuit sous tension</li>
+        <li>Couper l'alimentation avant toute modification</li>
+        <li>Mesurer avant de supposer</li>
+        <li>Limiter le courant lors des premiers tests</li>
+        <li>Lire la datasheet en cas de doute</li>
+      </ul>
+
+      <h2>11. Procédure en cas de problème</h2>
+      <p>Si un composant chauffe :</p>
+      <ol>
+        <li>Couper immédiatement l'alimentation</li>
+        <li>Vérifier la consommation de courant</li>
+        <li>Contrôler les polarités</li>
+        <li>Rechercher un court-circuit</li>
+        <li>Redémarrer avec une tension plus basse</li>
+      </ol>
+      <p>Ne jamais toucher un composant chaud.</p>
+
+      <h2>12. Niveau débutant : checklist rapide</h2>
+      <p>Avant ON :</p>
+      <ul>
+        <li>Polarités vérifiées</li>
+        <li>Valeurs contrôlées</li>
+        <li>Courant limité</li>
+        <li>Multimètre prêt en mode tension</li>
+      </ul>
+      <p>Après ON :</p>
+      <ul>
+        <li>Courant normal</li>
+        <li>Pas d'échauffement</li>
+        <li>Tensions cohérentes</li>
+      </ul>
+
+      <div class="actions">
+        <a class="btn-secondary" href="../ressources.html">Retour aux ressources</a>
+        <a class="btn-primary" href="../outils.html">Utiliser les outils</a>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
