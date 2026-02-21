@@ -269,20 +269,6 @@ p {
   color: var(--color-primary);
 }
 
-.badge {
-  position: absolute;
-  top: var(--space-2);
-  right: var(--space-2);
-  font-family: var(--font-headings);
-  color: var(--color-bg);
-  background: var(--color-accent);
-  border-radius: 999px;
-  padding: 2px 10px;
-  font-size: 0.75rem;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
 .btn-primary,
 .btn-secondary {
   min-height: 44px;
