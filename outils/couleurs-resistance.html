@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electronics Lab | Couleurs resistance</title>
+  <meta name="description" content="Reference rapide des couleurs de resistance et de leur signification.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script defer src="../assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">Electronics Lab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay" id="site-menu" role="navigation" aria-label="Navigation principale" aria-hidden="true">
+    <ul class="nav-list" role="list">
+      <li><a class="nav-item" data-nav="index" href="../index.html">Accueil</a></li>
+      <li><a class="nav-item" data-nav="modules" href="../modules.html">Modules</a></li>
+      <li>
+        <a class="nav-item" data-nav="outils" href="../outils.html">Outils</a>
+        <ul class="nav-submenu" role="list" hidden>
+          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="couleurs-resistance.html">Couleurs r&eacute;sistance</a></li>
+          <li><a class="nav-subitem" data-nav="loi-ohm" href="loi-ohm.html">Calcul loi d'Ohm</a></li>
+        </ul>
+      </li>
+      <li><a class="nav-item" data-nav="ressources" href="../ressources.html">Ressources</a></li>
+      <li><a class="nav-item" data-nav="a-propos" href="../a-propos.html">&Agrave; propos</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Fil d'ariane">
+      <a href="../index.html">Accueil</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../outils.html">Outils</a>
+      <span aria-hidden="true">&gt;</span>
+      <span>Couleurs r&eacute;sistance</span>
+    </nav>
+
+    <section class="page-header">
+      <h1>Couleurs r&eacute;sistance</h1>
+      <p>Repere rapide des codes couleur pour identifier les valeurs les plus courantes.</p>
+    </section>
+
+    <section class="card">
+      <h2>Table de reference</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Couleur</th>
+              <th>Chiffre</th>
+              <th>Multiplicateur</th>
+              <th>Tolerance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Noir</td><td>0</td><td>x1</td><td>-</td></tr>
+            <tr><td>Marron</td><td>1</td><td>x10</td><td>+-1%</td></tr>
+            <tr><td>Rouge</td><td>2</td><td>x100</td><td>+-2%</td></tr>
+            <tr><td>Orange</td><td>3</td><td>x1k</td><td>-</td></tr>
+            <tr><td>Jaune</td><td>4</td><td>x10k</td><td>-</td></tr>
+            <tr><td>Vert</td><td>5</td><td>x100k</td><td>+-0.5%</td></tr>
+            <tr><td>Bleu</td><td>6</td><td>x1M</td><td>+-0.25%</td></tr>
+            <tr><td>Violet</td><td>7</td><td>x10M</td><td>+-0.1%</td></tr>
+            <tr><td>Gris</td><td>8</td><td>x100M</td><td>+-0.05%</td></tr>
+            <tr><td>Blanc</td><td>9</td><td>x1G</td><td>-</td></tr>
+            <tr><td>Or</td><td>-</td><td>x0.1</td><td>+-5%</td></tr>
+            <tr><td>Argent</td><td>-</td><td>x0.01</td><td>+-10%</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="muted">Astuce: les deux premiers anneaux donnent la base, le troisieme applique le multiplicateur, le quatrieme indique la tolerance.</p>
+    </section>
+  </main>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electronics Lab | Ressources</title>
+  <meta name="description" content="Ressources Electronics Lab: fiches pratiques, methodes et aides memoire.">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <script defer src="assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="index.html">Electronics Lab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay" id="site-menu" role="navigation" aria-label="Navigation principale" aria-hidden="true">
+    <ul class="nav-list" role="list">
+      <li><a class="nav-item" data-nav="index" href="index.html">Accueil</a></li>
+      <li><a class="nav-item" data-nav="modules" href="modules.html">Modules</a></li>
+      <li>
+        <a class="nav-item" data-nav="outils" href="outils.html">Outils</a>
+        <ul class="nav-submenu" role="list" hidden>
+          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="outils/couleurs-resistance.html">Couleurs r&eacute;sistance</a></li>
+          <li><a class="nav-subitem" data-nav="loi-ohm" href="outils/loi-ohm.html">Calcul loi d'Ohm</a></li>
+        </ul>
+      </li>
+      <li><a class="nav-item" data-nav="ressources" href="ressources.html">Ressources</a></li>
+      <li><a class="nav-item" data-nav="a-propos" href="a-propos.html">&Agrave; propos</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <section class="page-header">
+      <h1>Ressources</h1>
+      <p>Bibliotheque de supports courts pour apprendre, verifier et depanner plus vite.</p>
+    </section>
+
+    <section class="list-layout" aria-label="Ressources disponibles">
+      <article class="card list-item">
+        <span class="badge">PDF</span>
+        <h3>Memo loi d'Ohm</h3>
+        <p>Formules essentielles et conversions d'unites les plus frequentes.</p>
+        <a class="btn-secondary" href="outils/loi-ohm.html">Outil associe</a>
+      </article>
+
+      <article class="card list-item">
+        <span class="badge">Guide</span>
+        <h3>Lecture des resistances</h3>
+        <p>Code couleur, tolerance et verification au multimetre.</p>
+        <a class="btn-secondary" href="outils/couleurs-resistance.html">Outil associe</a>
+      </article>
+
+      <article class="card list-item">
+        <span class="badge">Checklist</span>
+        <h3>Securite atelier</h3>
+        <p>Procedure de demarrage, points de controle, bonnes pratiques de mesure.</p>
+        <a class="btn-secondary" href="modules.html">Voir modules</a>
+      </article>
+
+      <article class="card list-item">
+        <span class="badge">Aide</span>
+        <h3>Depannage rapide</h3>
+        <p>Approche pas a pas pour isoler une panne sur un montage debutant.</p>
+        <a class="btn-secondary" href="a-propos.html">Contexte labo</a>
+      </article>
+    </section>
+  </main>
+</body>
+</html>
