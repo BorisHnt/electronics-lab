@@ -202,50 +202,48 @@
       <h3>Série</h3>
       <p>Même courant dans tous les composants, tensions qui s'additionnent :</p>
       <p class="formula">R_eq = R1 + R2 + ...</p>
+      <figure class="schema-card">
+        <svg class="schema-svg" viewBox="0 0 360 140" role="img" aria-label="Équivalence série de deux résistances">
+          <circle cx="30" cy="70" r="4" fill="#e46116"></circle>
+          <circle cx="330" cy="70" r="4" fill="#e46116"></circle>
+          <line x1="34" y1="70" x2="80" y2="70" stroke="#a8b0b3" stroke-width="3"></line>
+          <rect x="80" y="54" width="72" height="32" fill="none" stroke="#00c853" stroke-width="3"></rect>
+          <line x1="152" y1="70" x2="206" y2="70" stroke="#a8b0b3" stroke-width="3"></line>
+          <rect x="206" y="54" width="72" height="32" fill="none" stroke="#00c853" stroke-width="3"></rect>
+          <line x1="278" y1="70" x2="326" y2="70" stroke="#a8b0b3" stroke-width="3"></line>
+          <text x="116" y="49" fill="#00c853" text-anchor="middle" font-size="12">R1</text>
+          <text x="242" y="49" fill="#00c853" text-anchor="middle" font-size="12">R2</text>
+          <text x="180" y="122" fill="#e6e6e6" text-anchor="middle" font-size="14">R_eq = R1 + R2</text>
+          <text x="180" y="24" fill="#e46116" text-anchor="middle" font-size="12">Même courant I partout</text>
+        </svg>
+        <figcaption class="schema-caption">Série : on additionne directement les résistances.</figcaption>
+      </figure>
 
       <h3>Parallèle</h3>
       <p>Même tension sur chaque branche, courants qui se répartissent :</p>
       <p class="formula">1 / R_eq = 1/R1 + 1/R2 + ...</p>
       <p>La résistance équivalente en parallèle est toujours plus petite que la plus petite résistance du montage.</p>
-
-      <div class="schema-grid" aria-label="Schémas d'équivalences série et parallèle">
-        <figure class="schema-card">
-          <svg class="schema-svg" viewBox="0 0 360 140" role="img" aria-label="Équivalence série de deux résistances">
-            <circle cx="30" cy="70" r="4" fill="#e46116"></circle>
-            <circle cx="330" cy="70" r="4" fill="#e46116"></circle>
-            <line x1="34" y1="70" x2="80" y2="70" stroke="#a8b0b3" stroke-width="3"></line>
-            <rect x="80" y="54" width="72" height="32" fill="none" stroke="#00c853" stroke-width="3"></rect>
-            <line x1="152" y1="70" x2="206" y2="70" stroke="#a8b0b3" stroke-width="3"></line>
-            <rect x="206" y="54" width="72" height="32" fill="none" stroke="#00c853" stroke-width="3"></rect>
-            <line x1="278" y1="70" x2="326" y2="70" stroke="#a8b0b3" stroke-width="3"></line>
-            <text x="116" y="49" fill="#00c853" text-anchor="middle" font-size="12">R1</text>
-            <text x="242" y="49" fill="#00c853" text-anchor="middle" font-size="12">R2</text>
-            <text x="180" y="122" fill="#e6e6e6" text-anchor="middle" font-size="14">R_eq = R1 + R2</text>
-            <text x="180" y="24" fill="#e46116" text-anchor="middle" font-size="12">Même courant I partout</text>
-          </svg>
-          <figcaption class="schema-caption">Série : on additionne directement les résistances.</figcaption>
-        </figure>
-
-        <figure class="schema-card">
-          <svg class="schema-svg" viewBox="0 0 360 140" role="img" aria-label="Équivalence parallèle de deux résistances">
-            <circle cx="48" cy="24" r="4" fill="#e46116"></circle>
-            <circle cx="48" cy="116" r="4" fill="#e46116"></circle>
-            <circle cx="312" cy="24" r="4" fill="#e46116"></circle>
-            <circle cx="312" cy="116" r="4" fill="#e46116"></circle>
-            <line x1="48" y1="24" x2="312" y2="24" stroke="#a8b0b3" stroke-width="3"></line>
-            <line x1="48" y1="116" x2="312" y2="116" stroke="#a8b0b3" stroke-width="3"></line>
-            <line x1="110" y1="24" x2="110" y2="116" stroke="#a8b0b3" stroke-width="3"></line>
-            <line x1="250" y1="24" x2="250" y2="116" stroke="#a8b0b3" stroke-width="3"></line>
-            <rect x="96" y="48" width="28" height="44" fill="none" stroke="#00c853" stroke-width="3"></rect>
-            <rect x="236" y="48" width="28" height="44" fill="none" stroke="#00c853" stroke-width="3"></rect>
-            <text x="110" y="43" fill="#00c853" text-anchor="middle" font-size="12">R1</text>
-            <text x="250" y="43" fill="#00c853" text-anchor="middle" font-size="12">R2</text>
-            <text x="180" y="132" fill="#e6e6e6" text-anchor="middle" font-size="14">1/R_eq = 1/R1 + 1/R2</text>
-            <text x="180" y="16" fill="#e46116" text-anchor="middle" font-size="12">Même tension sur chaque branche</text>
-          </svg>
-          <figcaption class="schema-caption">Parallèle : on additionne les conductances (inverse des résistances).</figcaption>
-        </figure>
-      </div>
+      <figure class="schema-card">
+        <svg class="schema-svg" viewBox="0 0 360 140" role="img" aria-label="Équivalence parallèle de deux résistances">
+          <circle cx="48" cy="24" r="4" fill="#e46116"></circle>
+          <circle cx="48" cy="116" r="4" fill="#e46116"></circle>
+          <circle cx="312" cy="24" r="4" fill="#e46116"></circle>
+          <circle cx="312" cy="116" r="4" fill="#e46116"></circle>
+          <line x1="48" y1="24" x2="312" y2="24" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="48" y1="116" x2="312" y2="116" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="110" y1="24" x2="110" y2="48" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="110" y1="92" x2="110" y2="116" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="250" y1="24" x2="250" y2="48" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="250" y1="92" x2="250" y2="116" stroke="#a8b0b3" stroke-width="3"></line>
+          <rect x="96" y="48" width="28" height="44" fill="none" stroke="#00c853" stroke-width="3"></rect>
+          <rect x="236" y="48" width="28" height="44" fill="none" stroke="#00c853" stroke-width="3"></rect>
+          <text x="90" y="74" fill="#00c853" text-anchor="end" font-size="12">R1</text>
+          <text x="230" y="74" fill="#00c853" text-anchor="end" font-size="12">R2</text>
+          <text x="180" y="132" fill="#e6e6e6" text-anchor="middle" font-size="14">1/R_eq = 1/R1 + 1/R2</text>
+          <text x="180" y="16" fill="#e46116" text-anchor="middle" font-size="12">Même tension sur chaque branche</text>
+        </svg>
+        <figcaption class="schema-caption">Parallèle : on additionne les conductances (inverse des résistances).</figcaption>
+      </figure>
 
       <h2>5. Stratégie complète d'analyse d'un circuit</h2>
       <p>Méthode recommandée pour débuter sans se perdre :</p>
