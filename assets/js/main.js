@@ -450,14 +450,18 @@
     var resetButton = document.getElementById('capacitor-code-reset');
     var resultBox = document.getElementById('capacitor-code-result');
     var faradValue = document.getElementById('capacitor-farad-value');
+    var pfValue = document.getElementById('capacitor-pf-value');
+    var nfValue = document.getElementById('capacitor-nf-value');
+    var ufValue = document.getElementById('capacitor-uf-value');
+    var fValue = document.getElementById('capacitor-f-value');
     var detail = document.getElementById('capacitor-result-detail');
 
-    if (!form || !input || !resultBox || !faradValue || !detail) {
+    if (!form || !input || !resultBox || !faradValue || !pfValue || !nfValue || !ufValue || !fValue || !detail) {
       return;
     }
 
     function normalizeCode(value) {
-      return value.replace(/\s+/g, '');
+      return value.replace(/\D+/g, '').slice(0, 3);
     }
 
     function trimNumber(value, decimals) {
@@ -467,15 +471,19 @@
         .replace(/(\.\d*[1-9])0+$/, '$1');
     }
 
+    function formatValue(value, unit, decimals) {
+      if (!Number.isFinite(value)) {
+        return '—';
+      }
+      return trimNumber(value, decimals) + ' ' + unit;
+    }
+
     function formatFarad(value) {
       if (value === 0) {
         return '0 F';
       }
       if (value >= 0.001) {
-        return trimNumber(value, 6) + ' F';
-      }
-      if (value >= 0.000001) {
-        return value.toExponential(3).replace('+', '') + ' F';
+        return formatValue(value, 'F', 9);
       }
       return value.toExponential(4).replace('+', '') + ' F';
     }
@@ -483,13 +491,21 @@
     function setError(message) {
       resultBox.classList.add('is-error');
       faradValue.textContent = '—';
+      pfValue.textContent = '—';
+      nfValue.textContent = '—';
+      ufValue.textContent = '—';
+      fValue.textContent = '—';
       detail.textContent = message;
     }
 
-    function setSuccess(mainText, secondaryText) {
+    function setSuccess(values) {
       resultBox.classList.remove('is-error');
-      faradValue.textContent = mainText;
-      detail.textContent = secondaryText;
+      faradValue.textContent = formatFarad(values.f);
+      pfValue.textContent = formatValue(values.pf, 'pF', 0);
+      nfValue.textContent = formatValue(values.nf, 'nF', 9);
+      ufValue.textContent = formatValue(values.uf, 'µF', 9);
+      fValue.textContent = formatFarad(values.f);
+      detail.textContent = values.code + ' = ' + formatValue(values.pf, 'pF', 0);
     }
 
     function decodeCapacitorCode(code) {
@@ -497,6 +513,7 @@
       var exponent = Number(code.charAt(2));
       var valuePf = significant * Math.pow(10, exponent);
       return {
+        code: code,
         pf: valuePf,
         nf: valuePf / 1000,
         uf: valuePf / 1000000,
@@ -504,34 +521,57 @@
       };
     }
 
-    form.addEventListener('submit', function (event) {
-      event.preventDefault();
-
+    function evaluate(showErrors) {
       var code = normalizeCode(input.value);
       input.value = code;
+
+      if (!code) {
+        resultBox.classList.remove('is-error');
+        faradValue.textContent = '0 F';
+        pfValue.textContent = '0 pF';
+        nfValue.textContent = '0 nF';
+        ufValue.textContent = '0 µF';
+        fValue.textContent = '0 F';
+        detail.textContent = 'Entrez un code (103, 104, 501...) pour afficher la conversion.';
+        return;
+      }
+
+      if (code.length < 3) {
+        resultBox.classList.remove('is-error');
+        faradValue.textContent = '0 F';
+        pfValue.textContent = '0 pF';
+        nfValue.textContent = '0 nF';
+        ufValue.textContent = '0 µF';
+        fValue.textContent = '0 F';
+        detail.textContent = 'Saisissez 3 chiffres (ex : 103, 104, 501).';
+        return;
+      }
 
       if (!/^\d{3}$/.test(code)) {
         setError('Code invalide. Utilisez exactement 3 chiffres (ex : 103, 104, 501).');
         return;
       }
 
-      var values = decodeCapacitorCode(code);
-      var secondary = code + ' = '
-        + trimNumber(values.pf, 0) + ' pF = '
-        + trimNumber(values.nf, 6) + ' nF = '
-        + trimNumber(values.uf, 6) + ' µF';
+      setSuccess(decodeCapacitorCode(code));
+    }
 
-      setSuccess(formatFarad(values.f), secondary);
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      evaluate(true);
+    });
+
+    input.addEventListener('input', function () {
+      evaluate(false);
     });
 
     if (resetButton) {
       resetButton.addEventListener('click', function () {
         form.reset();
-        resultBox.classList.remove('is-error');
-        faradValue.textContent = '0 F';
-        detail.textContent = 'Entrez un code pour afficher la conversion.';
+        evaluate(false);
       });
     }
+
+    evaluate(false);
   }
 
   applyActiveMenuState();

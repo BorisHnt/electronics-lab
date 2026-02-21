@@ -409,6 +409,24 @@ main .container > .card + .card {
   color: var(--color-muted);
 }
 
+.cap-unit-list {
+  display: grid;
+  gap: 6px;
+  margin-bottom: var(--space-2);
+}
+
+.cap-unit-list p {
+  margin: 0;
+  display: flex;
+  justify-content: space-between;
+  gap: var(--space-2);
+  font-family: var(--font-headings);
+}
+
+.cap-unit-list span {
+  color: var(--color-muted);
+}
+
 .prose h2 {
   margin-top: var(--space-2);
 }

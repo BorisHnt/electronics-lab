@@ -53,7 +53,7 @@
         <div class="form-field">
           <label for="capacitor-code">Code condensateur</label>
           <input id="capacitor-code" name="capacitor-code" type="text" inputmode="numeric" maxlength="3" placeholder="Ex : 104" aria-describedby="cap-help">
-          <p id="cap-help" class="muted">Format attendu : 3 chiffres (XY Z), valeur exprimée en pF.</p>
+          <p id="cap-help" class="muted">Format attendu : 3 chiffres (XYZ), valeur exprimée en pF.</p>
         </div>
 
         <div class="actions">
@@ -64,7 +64,13 @@
 
       <div id="capacitor-code-result" class="result-box cap-result" role="status" aria-live="polite">
         <p class="cap-result-main" id="capacitor-farad-value">0 F</p>
-        <p class="cap-result-detail" id="capacitor-result-detail">Entrez un code pour afficher la conversion.</p>
+        <div class="cap-unit-list">
+          <p><span>pF</span><strong id="capacitor-pf-value">0 pF</strong></p>
+          <p><span>nF</span><strong id="capacitor-nf-value">0 nF</strong></p>
+          <p><span>µF</span><strong id="capacitor-uf-value">0 µF</strong></p>
+          <p><span>F</span><strong id="capacitor-f-value">0 F</strong></p>
+        </div>
+        <p class="cap-result-detail" id="capacitor-result-detail">Entrez un code (103, 104, 501...) pour afficher la conversion.</p>
       </div>
     </section>
   </main>
