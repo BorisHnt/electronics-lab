@@ -27,6 +27,7 @@
     var topLevelMap = {
       'index.html': 'index',
       'modules.html': 'modules',
+      'theorie.html': 'theorie',
       'outils.html': 'outils',
       'ressources.html': 'ressources',
       'a-propos.html': 'a-propos',
@@ -221,36 +222,36 @@
       if (v === null && i !== null && r !== null) {
         v = i * r;
         voltage.value = formatNumber(v);
-        setResult('Tension calculee: ' + formatNumber(v) + ' V', false);
+        setResult('Tension calculée : ' + formatNumber(v) + ' V', false);
         return;
       }
 
       if (i === null && v !== null && r !== null) {
         if (r === 0) {
-          setResult('La resistance doit etre superieure a 0 pour calculer le courant.', true);
+          setResult('La résistance doit être supérieure à 0 pour calculer le courant.', true);
           return;
         }
         i = v / r;
         current.value = formatNumber(i);
-        setResult('Courant calcule: ' + formatNumber(i) + ' A', false);
+        setResult('Courant calculé : ' + formatNumber(i) + ' A', false);
         return;
       }
 
       if (r === null && v !== null && i !== null) {
         if (i === 0) {
-          setResult('Le courant doit etre superieur a 0 pour calculer la resistance.', true);
+          setResult('Le courant doit être supérieur à 0 pour calculer la résistance.', true);
           return;
         }
         r = v / i;
         resistance.value = formatNumber(r);
-        setResult('Resistance calculee: ' + formatNumber(r) + ' Ohm', false);
+        setResult('Résistance calculée : ' + formatNumber(r) + ' Ohm', false);
       }
     });
 
     if (resetButton) {
       resetButton.addEventListener('click', function () {
         form.reset();
-        setResult('Le resultat apparaitra ici.', false);
+        setResult('Le résultat apparaîtra ici.', false);
       });
     }
   }
@@ -407,7 +408,7 @@
       var toleranceValue = tolerance.tolerance;
 
       result.classList.remove('is-error');
-      result.textContent = 'Valeur: ' + formatResistance(resistance) + ' +-' + toleranceValue + '%';
+      result.textContent = 'Valeur : ' + formatResistance(resistance) + ' ±' + toleranceValue + '%';
     }
 
     function refresh() {
@@ -429,7 +430,7 @@
       return meta.label + ' (x' + trimNumber(meta.multiplier) + ')';
     });
     populateSelect(toleranceSelect, toleranceKeys, function (meta) {
-      return meta.label + ' (+-' + meta.tolerance + '%)';
+      return meta.label + ' (±' + meta.tolerance + '%)';
     });
 
     bandCount.value = defaults.bandCount;

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Electronics Lab | Couleurs resistance</title>
-  <meta name="description" content="Reference rapide des couleurs de resistance et de leur signification.">
+  <title>Electronics Lab | Couleurs résistance</title>
+  <meta name="description" content="Référence rapide des couleurs de résistance et de leur signification.">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script defer src="../assets/js/main.js"></script>
 </head>
@@ -20,69 +20,70 @@
     <ul class="nav-list" role="list">
       <li><a class="nav-item" data-nav="index" href="../index.html">Accueil</a></li>
       <li><a class="nav-item" data-nav="modules" href="../modules.html">Modules</a></li>
+      <li><a class="nav-item" data-nav="theorie" href="../theorie.html">Théorie</a></li>
       <li>
         <a class="nav-item" data-nav="outils" href="../outils.html">Outils</a>
         <ul class="nav-submenu" role="list" hidden>
-          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="couleurs-resistance.html">Couleurs r&eacute;sistance</a></li>
+          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="couleurs-resistance.html">Couleurs résistance</a></li>
           <li><a class="nav-subitem" data-nav="loi-ohm" href="loi-ohm.html">Calcul loi d'Ohm</a></li>
         </ul>
       </li>
       <li><a class="nav-item" data-nav="ressources" href="../ressources.html">Ressources</a></li>
-      <li><a class="nav-item" data-nav="a-propos" href="../a-propos.html">&Agrave; propos</a></li>
+      <li><a class="nav-item" data-nav="a-propos" href="../a-propos.html">À propos</a></li>
     </ul>
   </nav>
 
   <main class="container">
-    <nav class="breadcrumb" aria-label="Fil d'ariane">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
       <a href="../index.html">Accueil</a>
       <span aria-hidden="true">&gt;</span>
       <a href="../outils.html">Outils</a>
       <span aria-hidden="true">&gt;</span>
-      <span>Couleurs r&eacute;sistance</span>
+      <span>Couleurs résistance</span>
     </nav>
 
     <section class="page-header">
-      <h1>Couleurs r&eacute;sistance</h1>
-      <p>Repere rapide des codes couleur pour identifier les valeurs les plus courantes.</p>
+      <h1>Couleurs résistance</h1>
+      <p>Repère rapide des codes couleur pour identifier les valeurs les plus courantes.</p>
     </section>
 
     <section class="card">
-      <h2>Table de reference</h2>
+      <h2>Table de référence</h2>
       <div class="table-wrap">
         <table>
           <thead>
             <tr>
-              <th>Apercu</th>
+              <th>Aperçu</th>
               <th>Couleur</th>
               <th>Chiffre</th>
               <th>Multiplicateur</th>
-              <th>Tolerance</th>
+              <th>Tolérance</th>
             </tr>
           </thead>
           <tbody>
             <tr><td><span class="table-swatch color-black" aria-hidden="true"></span></td><td>Noir</td><td>0</td><td>x1</td><td>-</td></tr>
-            <tr><td><span class="table-swatch color-brown" aria-hidden="true"></span></td><td>Marron</td><td>1</td><td>x10</td><td>+-1%</td></tr>
-            <tr><td><span class="table-swatch color-red" aria-hidden="true"></span></td><td>Rouge</td><td>2</td><td>x100</td><td>+-2%</td></tr>
+            <tr><td><span class="table-swatch color-brown" aria-hidden="true"></span></td><td>Marron</td><td>1</td><td>x10</td><td>±1%</td></tr>
+            <tr><td><span class="table-swatch color-red" aria-hidden="true"></span></td><td>Rouge</td><td>2</td><td>x100</td><td>±2%</td></tr>
             <tr><td><span class="table-swatch color-orange" aria-hidden="true"></span></td><td>Orange</td><td>3</td><td>x1k</td><td>-</td></tr>
             <tr><td><span class="table-swatch color-yellow" aria-hidden="true"></span></td><td>Jaune</td><td>4</td><td>x10k</td><td>-</td></tr>
-            <tr><td><span class="table-swatch color-green" aria-hidden="true"></span></td><td>Vert</td><td>5</td><td>x100k</td><td>+-0.5%</td></tr>
-            <tr><td><span class="table-swatch color-blue" aria-hidden="true"></span></td><td>Bleu</td><td>6</td><td>x1M</td><td>+-0.25%</td></tr>
-            <tr><td><span class="table-swatch color-violet" aria-hidden="true"></span></td><td>Violet</td><td>7</td><td>x10M</td><td>+-0.1%</td></tr>
-            <tr><td><span class="table-swatch color-gray" aria-hidden="true"></span></td><td>Gris</td><td>8</td><td>x100M</td><td>+-0.05%</td></tr>
+            <tr><td><span class="table-swatch color-green" aria-hidden="true"></span></td><td>Vert</td><td>5</td><td>x100k</td><td>±0.5%</td></tr>
+            <tr><td><span class="table-swatch color-blue" aria-hidden="true"></span></td><td>Bleu</td><td>6</td><td>x1M</td><td>±0.25%</td></tr>
+            <tr><td><span class="table-swatch color-violet" aria-hidden="true"></span></td><td>Violet</td><td>7</td><td>x10M</td><td>±0.1%</td></tr>
+            <tr><td><span class="table-swatch color-gray" aria-hidden="true"></span></td><td>Gris</td><td>8</td><td>x100M</td><td>±0.05%</td></tr>
             <tr><td><span class="table-swatch color-white" aria-hidden="true"></span></td><td>Blanc</td><td>9</td><td>x1G</td><td>-</td></tr>
-            <tr><td><span class="table-swatch color-gold" aria-hidden="true"></span></td><td>Or</td><td>-</td><td>x0.1</td><td>+-5%</td></tr>
-            <tr><td><span class="table-swatch color-silver" aria-hidden="true"></span></td><td>Argent</td><td>-</td><td>x0.01</td><td>+-10%</td></tr>
+            <tr><td><span class="table-swatch color-gold" aria-hidden="true"></span></td><td>Or</td><td>-</td><td>x0.1</td><td>±5%</td></tr>
+            <tr><td><span class="table-swatch color-silver" aria-hidden="true"></span></td><td>Argent</td><td>-</td><td>x0.01</td><td>±10%</td></tr>
           </tbody>
         </table>
       </div>
-      <p class="muted">Astuce: les deux premiers anneaux donnent la base, le troisieme applique le multiplicateur, le quatrieme indique la tolerance.</p>
+      <p class="muted">Astuce : les deux premiers anneaux donnent la base, le troisième applique le multiplicateur, le quatrième indique la tolérance.</p>
     </section>
 
     <section class="card">
-      <h2>Decodeur de resistance</h2>
-      <p class="muted">Choisissez 4 ou 5 anneaux: le schema se met a jour et la valeur est calculee automatiquement.</p>
+      <h2>Décodeur de résistance</h2>
+      <p class="muted">Choisissez 4 ou 5 anneaux : le schéma se met à jour et la valeur est calculée automatiquement.</p>
 
-      <form id="resistor-color-form" class="resistor-form" aria-label="Decodeur de resistance">
+      <form id="resistor-color-form" class="resistor-form" aria-label="Décodeur de résistance">
         <div class="form-field" id="band-count-field">
           <label for="band-count">Nombre d'anneaux</label>
           <select id="band-count" name="band-count">
@@ -92,7 +93,7 @@
         </div>
 
         <div class="form-field" id="band1-field">
-          <label for="band1-select">Anneau 1 (chiffre)</label>
+          <label for="band1-select">Anneau 1</label>
           <div class="combo-row">
             <select id="band1-select" name="band1"></select>
             <span id="band1-preview" class="combo-swatch" aria-hidden="true"></span>
@@ -100,7 +101,7 @@
         </div>
 
         <div class="form-field" id="band2-field">
-          <label for="band2-select">Anneau 2 (chiffre)</label>
+          <label for="band2-select">Anneau 2</label>
           <div class="combo-row">
             <select id="band2-select" name="band2"></select>
             <span id="band2-preview" class="combo-swatch" aria-hidden="true"></span>
@@ -108,7 +109,7 @@
         </div>
 
         <div class="form-field" id="band3-field" hidden>
-          <label for="band3-select">Anneau 3 (chiffre)</label>
+          <label for="band3-select">Anneau 3</label>
           <div class="combo-row">
             <select id="band3-select" name="band3"></select>
             <span id="band3-preview" class="combo-swatch" aria-hidden="true"></span>
@@ -124,7 +125,7 @@
         </div>
 
         <div class="form-field" id="tolerance-field">
-          <label for="tolerance-select">Tolerance</label>
+          <label for="tolerance-select">Tolérance</label>
           <div class="combo-row">
             <select id="tolerance-select" name="tolerance"></select>
             <span id="tolerance-preview" class="combo-swatch" aria-hidden="true"></span>
@@ -132,7 +133,7 @@
         </div>
 
         <div class="actions">
-          <button id="resistor-reset" class="btn-secondary" type="button">Reinitialiser</button>
+          <button id="resistor-reset" class="btn-secondary" type="button">Réinitialiser</button>
         </div>
       </form>
 
@@ -148,7 +149,7 @@
         <span class="resistor-wire"></span>
       </div>
 
-      <p id="resistor-result" class="result-box" role="status" aria-live="polite">Valeur: 1 kOhm +-5%</p>
+      <p id="resistor-result" class="result-box" role="status" aria-live="polite">Valeur : 1 kOhm ±5%</p>
     </section>
   </main>
 </body>

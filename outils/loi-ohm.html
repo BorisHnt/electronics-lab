@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Electronics Lab | Calcul loi d'Ohm</title>
-  <meta name="description" content="Calculateur loi d'Ohm: calculez tension, courant ou resistance rapidement.">
+  <meta name="description" content="Calculateur loi d'Ohm : calculez tension, courant ou résistance rapidement.">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script defer src="../assets/js/main.js"></script>
 </head>
@@ -20,20 +20,21 @@
     <ul class="nav-list" role="list">
       <li><a class="nav-item" data-nav="index" href="../index.html">Accueil</a></li>
       <li><a class="nav-item" data-nav="modules" href="../modules.html">Modules</a></li>
+      <li><a class="nav-item" data-nav="theorie" href="../theorie.html">Théorie</a></li>
       <li>
         <a class="nav-item" data-nav="outils" href="../outils.html">Outils</a>
         <ul class="nav-submenu" role="list" hidden>
-          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="couleurs-resistance.html">Couleurs r&eacute;sistance</a></li>
+          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="couleurs-resistance.html">Couleurs résistance</a></li>
           <li><a class="nav-subitem" data-nav="loi-ohm" href="loi-ohm.html">Calcul loi d'Ohm</a></li>
         </ul>
       </li>
       <li><a class="nav-item" data-nav="ressources" href="../ressources.html">Ressources</a></li>
-      <li><a class="nav-item" data-nav="a-propos" href="../a-propos.html">&Agrave; propos</a></li>
+      <li><a class="nav-item" data-nav="a-propos" href="../a-propos.html">À propos</a></li>
     </ul>
   </nav>
 
   <main class="container">
-    <nav class="breadcrumb" aria-label="Fil d'ariane">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
       <a href="../index.html">Accueil</a>
       <span aria-hidden="true">&gt;</span>
       <a href="../outils.html">Outils</a>
@@ -43,7 +44,7 @@
 
     <section class="page-header">
       <h1>Calcul loi d'Ohm</h1>
-      <p>Renseignez deux champs, laissez le troisieme vide, puis lancez le calcul.</p>
+      <p>Renseignez deux champs, laissez le troisième vide, puis lancez le calcul.</p>
     </section>
 
     <section class="card" aria-labelledby="ohm-form-title">
@@ -51,26 +52,26 @@
       <form id="ohm-form" class="calc-grid" novalidate>
         <div class="form-field">
           <label for="voltage">Tension (V)</label>
-          <input id="voltage" name="voltage" type="number" inputmode="decimal" min="0" step="any" placeholder="Ex: 12">
+          <input id="voltage" name="voltage" type="number" inputmode="decimal" min="0" step="any" placeholder="Ex : 12">
         </div>
 
         <div class="form-field">
           <label for="current">Courant (A)</label>
-          <input id="current" name="current" type="number" inputmode="decimal" min="0" step="any" placeholder="Ex: 0.02">
+          <input id="current" name="current" type="number" inputmode="decimal" min="0" step="any" placeholder="Ex : 0.02">
         </div>
 
         <div class="form-field">
-          <label for="resistance">Resistance (Ohm)</label>
-          <input id="resistance" name="resistance" type="number" inputmode="decimal" min="0" step="any" placeholder="Ex: 600">
+          <label for="resistance">Résistance (Ohm)</label>
+          <input id="resistance" name="resistance" type="number" inputmode="decimal" min="0" step="any" placeholder="Ex : 600">
         </div>
 
         <div class="actions">
           <button class="btn-primary" type="submit">Calculer</button>
-          <button class="btn-secondary" id="ohm-reset" type="button">Reinitialiser</button>
+          <button class="btn-secondary" id="ohm-reset" type="button">Réinitialiser</button>
         </div>
       </form>
 
-      <p id="ohm-result" class="result-box" role="status" aria-live="polite">Le resultat apparaitra ici.</p>
+      <p id="ohm-result" class="result-box" role="status" aria-live="polite">Le résultat apparaîtra ici.</p>
     </section>
   </main>
 </body>
