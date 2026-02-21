@@ -27,6 +27,7 @@
       'ressources.html': 'ressources',
       'securite-atelier.html': 'ressources',
       'memo-lois-electronique.html': 'ressources',
+      'lecture-resistances.html': 'ressources',
       'a-propos.html': 'a-propos',
       'loi-ohm.html': 'outils',
       'couleurs-resistance.html': 'outils'

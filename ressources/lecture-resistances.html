@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electronics Lab | Lecture des résistances</title>
+  <meta name="description" content="Cours lecture des résistances : code couleur 4/5 bandes, tolérance, séries E, erreurs fréquentes et méthode rapide débutant.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script defer src="../assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">Electronics Lab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay" id="site-menu" role="navigation" aria-label="Navigation principale" aria-hidden="true">
+    <ul class="nav-list" role="list">
+      <li><a class="nav-item" data-nav="index" href="../index.html">Accueil</a></li>
+      <li><a class="nav-item" data-nav="modules" href="../modules.html">Modules</a></li>
+      <li><a class="nav-item" data-nav="theorie" href="../theorie.html">Théorie</a></li>
+      <li>
+        <a class="nav-item" data-nav="outils" href="../outils.html">Outils</a>
+        <ul class="nav-submenu" role="list" hidden>
+          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="../outils/couleurs-resistance.html">Couleurs résistance</a></li>
+          <li><a class="nav-subitem" data-nav="loi-ohm" href="../outils/loi-ohm.html">Calcul loi d'Ohm</a></li>
+        </ul>
+      </li>
+      <li><a class="nav-item" data-nav="ressources" href="../ressources.html">Ressources</a></li>
+      <li><a class="nav-item" data-nav="a-propos" href="../a-propos.html">À propos</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../index.html">Accueil</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../ressources.html">Ressources</a>
+      <span aria-hidden="true">&gt;</span>
+      <span>Lecture des résistances</span>
+    </nav>
+
+    <section class="page-header">
+      <h1>Lecture des résistances</h1>
+      <p>Les résistances utilisent un code couleur normalisé pour indiquer leur valeur et leur tolérance, même quand aucune inscription n'est lisible.</p>
+    </section>
+
+    <article class="card prose">
+      <h2>1. Pourquoi un code couleur ?</h2>
+      <p>Les résistances traversantes sont souvent trop petites pour afficher une valeur numérique claire. Le code couleur est donc utilisé car il est :</p>
+      <ul>
+        <li>Compact</li>
+        <li>Normalisé</li>
+        <li>Lisible dans n'importe quel sens (avec la bande de tolérance placée à droite)</li>
+      </ul>
+      <p>Une bonne lecture des bandes permet d'éviter les erreurs de montage avant même la première mise sous tension.</p>
+
+      <h2>2. Structure du code couleur</h2>
+      <h3>Résistance à 4 bandes</h3>
+      <p>Bandes :</p>
+      <ol>
+        <li>Premier chiffre</li>
+        <li>Deuxième chiffre</li>
+        <li>Multiplicateur</li>
+        <li>Tolérance</li>
+      </ol>
+      <p>Exemple :</p>
+      <p class="formula">Rouge – Violet – Marron – Or</p>
+      <p class="formula">2 – 7 – ×10¹ – ±5%</p>
+      <p class="formula">270 Ω ±5%</p>
+
+      <h3>Résistance à 5 bandes</h3>
+      <p>Bandes :</p>
+      <ol>
+        <li>Premier chiffre</li>
+        <li>Deuxième chiffre</li>
+        <li>Troisième chiffre</li>
+        <li>Multiplicateur</li>
+        <li>Tolérance</li>
+      </ol>
+      <p>Ce format est utilisé pour les résistances de précision.</p>
+      <p>Exemple :</p>
+      <p class="formula">Marron – Noir – Noir – Rouge – Marron</p>
+      <p class="formula">100 × 10² = 10 kΩ ±1%</p>
+
+      <h2>3. Table des couleurs</h2>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Couleur</th>
+              <th>Chiffre</th>
+              <th>Multiplicateur</th>
+              <th>Tolérance</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Noir</td><td>0</td><td>×10⁰</td><td>—</td></tr>
+            <tr><td>Marron</td><td>1</td><td>×10¹</td><td>±1%</td></tr>
+            <tr><td>Rouge</td><td>2</td><td>×10²</td><td>±2%</td></tr>
+            <tr><td>Orange</td><td>3</td><td>×10³</td><td>—</td></tr>
+            <tr><td>Jaune</td><td>4</td><td>×10⁴</td><td>—</td></tr>
+            <tr><td>Vert</td><td>5</td><td>×10⁵</td><td>±0,5%</td></tr>
+            <tr><td>Bleu</td><td>6</td><td>×10⁶</td><td>±0,25%</td></tr>
+            <tr><td>Violet</td><td>7</td><td>×10⁷</td><td>±0,1%</td></tr>
+            <tr><td>Gris</td><td>8</td><td>×10⁸</td><td>±0,05%</td></tr>
+            <tr><td>Blanc</td><td>9</td><td>×10⁹</td><td>—</td></tr>
+            <tr><td>Or</td><td>—</td><td>×10⁻¹</td><td>±5%</td></tr>
+            <tr><td>Argent</td><td>—</td><td>×10⁻²</td><td>±10%</td></tr>
+            <tr><td>Aucune</td><td>—</td><td>—</td><td>±20%</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2>4. Méthode de lecture pas à pas</h2>
+      <ol>
+        <li>Repérer la bande de tolérance (souvent or ou argent)</li>
+        <li>Lire les bandes de gauche à droite</li>
+        <li>Former le nombre significatif</li>
+        <li>Appliquer le multiplicateur</li>
+        <li>Ajouter la tolérance</li>
+      </ol>
+      <p>Astuce débutant : si la dernière bande est isolée et un peu plus éloignée, c'est généralement la tolérance.</p>
+
+      <h2>5. Exemples pratiques</h2>
+      <p class="formula">Jaune – Violet – Rouge – Or → 47 × 10² = 4700 Ω = 4,7 kΩ ±5%</p>
+      <p class="formula">Marron – Noir – Orange – Or → 10 × 10³ = 10 kΩ ±5%</p>
+      <p class="formula">Rouge – Rouge – Marron – Or → 22 × 10¹ = 220 Ω ±5%</p>
+      <p>En atelier, écrire d'abord le nombre significatif, puis appliquer le multiplicateur évite les confusions.</p>
+
+      <h2>6. Valeurs normalisées (séries E)</h2>
+      <p>Les résistances n'existent pas dans toutes les valeurs possibles.</p>
+      <ul>
+        <li>E6 : tolérance 20%</li>
+        <li>E12 : 10%</li>
+        <li>E24 : 5%</li>
+        <li>E96 : 1%</li>
+      </ul>
+      <p>C'est pour cela qu'on trouve facilement 4,7 kΩ, mais rarement 5 kΩ exact.</p>
+
+      <h2>7. Tolérance</h2>
+      <p>La tolérance indique la variation possible autour de la valeur nominale.</p>
+      <p class="formula">1 kΩ ±5% → plage réelle : 950 Ω à 1050 Ω</p>
+      <p>Ce point devient crucial pour :</p>
+      <ul>
+        <li>Circuits analogiques</li>
+        <li>Filtres</li>
+        <li>Ponts diviseurs précis</li>
+      </ul>
+
+      <h2>8. Puissance d'une résistance</h2>
+      <p>La puissance n'est pas codée par les couleurs : elle dépend de la taille physique.</p>
+      <ul>
+        <li>Très petite : 1/8 W</li>
+        <li>Standard : 1/4 W</li>
+        <li>Plus grande : 1/2 W ou plus</li>
+      </ul>
+      <p>Toujours vérifier :</p>
+      <p class="formula">P = I²R ou P = U²/R</p>
+      <p>La puissance calculée doit rester inférieure à la puissance nominale de la résistance.</p>
+
+      <h2>9. Erreurs fréquentes</h2>
+      <ul>
+        <li>Confondre le sens de lecture</li>
+        <li>Oublier le multiplicateur</li>
+        <li>Confondre rouge et orange sous faible éclairage</li>
+        <li>Lire une résistance 5 bandes comme une 4 bandes</li>
+        <li>Ignorer la tolérance</li>
+      </ul>
+      <p>En cas de doute : vérifier au multimètre avant montage.</p>
+
+      <h2>10. Astuces pratiques</h2>
+      <ul>
+        <li>Mémoriser les couleurs des chiffres de 0 à 9</li>
+        <li>Garder une table de référence visible à l'atelier</li>
+        <li>Mesurer les résistances critiques avant montage</li>
+        <li>Ranger les résistances par valeur dans des boîtes étiquetées</li>
+      </ul>
+
+      <h2>11. Cas particuliers</h2>
+      <p><strong>Résistances CMS :</strong> valeur inscrite en code numérique (exemple : 103 = 10 kΩ).</p>
+      <p><strong>Résistances de précision :</strong> 5 bandes, parfois 6 bandes (coefficient de température).</p>
+
+      <h2>12. Méthode rapide pour débutant</h2>
+      <ul>
+        <li>Tolérance à droite</li>
+        <li>Lire 2 ou 3 chiffres selon le nombre de bandes</li>
+        <li>Appliquer le multiplicateur</li>
+        <li>Convertir en kΩ si &gt; 1000 Ω</li>
+      </ul>
+      <p>Objectif : aller vite sans sacrifier la fiabilité du montage.</p>
+
+      <div class="actions">
+        <a class="btn-secondary" href="../ressources.html">Retour aux ressources</a>
+        <a class="btn-primary" href="../outils/couleurs-resistance.html">Utiliser l'outil couleurs</a>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
