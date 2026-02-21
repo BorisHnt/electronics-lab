@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Electronics Lab | Mémo des lois en électronique</title>
-  <meta name="description" content="Mémo des lois en électronique : loi d'Ohm, KCL, KVL, résistances équivalentes et stratégie complète d'analyse.">
+  <meta name="description" content="Mémo des lois en électronique : loi d'Ohm, KCL, KVL, résistances équivalentes et méthode d'analyse accessible aux débutants.">
   <link rel="stylesheet" href="../assets/css/style.css">
   <script defer src="../assets/js/main.js"></script>
 </head>
@@ -52,197 +52,243 @@
       <h3>Définition physique</h3>
       <p>La loi d'Ohm relie le champ électrique appliqué à un conducteur au courant qui le traverse.</p>
       <p class="formula">J = σE</p>
-      <p>Forme macroscopique (utilisée en électronique) :</p>
+      <p>En électronique, on utilise surtout la forme globale :</p>
       <p class="formula">U = R × I</p>
-      <p>Elle n'est valide que pour les composants <strong>linéaires ohmiques</strong>.</p>
-      <p>Exemples non ohmiques : diodes, transistors, lampes à filament.</p>
+      <ul>
+        <li>U : tension (en volts)</li>
+        <li>R : résistance (en ohms)</li>
+        <li>I : courant (en ampères)</li>
+      </ul>
+      <p>Cette loi est valide pour les composants <strong>linéaires ohmiques</strong>. Elle n'est pas directement applicable aux composants non linéaires comme les diodes, les transistors ou les lampes à filament.</p>
+
+      <figure class="schema-card">
+        <svg class="schema-svg" viewBox="0 0 360 140" role="img" aria-label="Schéma loi d'Ohm avec source, résistance et courant">
+          <line x1="20" y1="70" x2="70" y2="70" stroke="#a8b0b3" stroke-width="3"></line>
+          <circle cx="95" cy="70" r="25" fill="none" stroke="#e46116" stroke-width="3"></circle>
+          <text x="95" y="74" fill="#e46116" text-anchor="middle" font-size="13">U</text>
+          <line x1="120" y1="70" x2="165" y2="70" stroke="#a8b0b3" stroke-width="3"></line>
+          <rect x="165" y="52" width="90" height="36" fill="none" stroke="#00c853" stroke-width="3"></rect>
+          <text x="210" y="47" fill="#00c853" text-anchor="middle" font-size="13">R</text>
+          <line x1="255" y1="70" x2="340" y2="70" stroke="#a8b0b3" stroke-width="3"></line>
+          <polygon points="48,63 60,70 48,77" fill="#00c853"></polygon>
+          <text x="40" y="57" fill="#00c853" font-size="13">I</text>
+          <text x="210" y="122" fill="#e6e6e6" text-anchor="middle" font-size="14">U = R × I</text>
+        </svg>
+        <figcaption class="schema-caption">Schéma de base : la tension U impose un courant I à travers la résistance R.</figcaption>
+      </figure>
 
       <h3>Puissance électrique</h3>
-      <p>À partir de la loi d'Ohm :</p>
+      <p>À partir de la loi d'Ohm, on obtient trois expressions utiles pour la puissance :</p>
       <p class="formula">P = U × I</p>
       <p class="formula">P = R × I²</p>
       <p class="formula">P = U² / R</p>
-      <p>Applications :</p>
+      <p>Applications concrètes :</p>
       <ul>
-        <li>Dimensionnement des résistances</li>
-        <li>Dissipation thermique</li>
-        <li>Rendement énergétique</li>
+        <li>Dimensionner correctement une résistance</li>
+        <li>Évaluer l'échauffement d'un composant</li>
+        <li>Contrôler le rendement énergétique d'un montage</li>
       </ul>
-      <p>Une résistance 1/4 W ne doit pas dissiper plus de 0,25 W.</p>
+      <p>Exemple : une résistance 1/4 W ne doit jamais dissiper plus de 0,25 W, sinon elle risque de chauffer excessivement puis de se dégrader.</p>
 
       <h3>Convention passive</h3>
       <p>Si le courant entre par la borne positive d'un dipôle :</p>
       <ul>
-        <li>P &gt; 0 : le dipôle consomme</li>
-        <li>P &lt; 0 : le dipôle fournit</li>
+        <li>P &gt; 0 : le dipôle consomme de l'énergie</li>
+        <li>P &lt; 0 : le dipôle fournit de l'énergie</li>
       </ul>
-      <p>Important pour l'analyse énergétique.</p>
-
-      <h2>Schémas des lois</h2>
-      <div class="schema-grid" aria-label="Schémas d'exemples des lois électriques">
-        <figure class="schema-card">
-          <svg class="schema-svg" viewBox="0 0 260 120" role="img" aria-label="Schéma loi d'Ohm">
-            <line x1="20" y1="60" x2="80" y2="60" stroke="#a8b0b3" stroke-width="3"></line>
-            <rect x="80" y="45" width="80" height="30" fill="none" stroke="#00c853" stroke-width="3"></rect>
-            <line x1="160" y1="60" x2="240" y2="60" stroke="#a8b0b3" stroke-width="3"></line>
-            <text x="120" y="40" fill="#e46116" font-size="14" text-anchor="middle">R</text>
-            <text x="35" y="50" fill="#00c853" font-size="14">I</text>
-            <text x="210" y="50" fill="#00c853" font-size="14">U</text>
-            <polygon points="46,54 56,60 46,66" fill="#00c853"></polygon>
-          </svg>
-          <figcaption class="schema-caption">Loi d'Ohm : U = R × I</figcaption>
-        </figure>
-
-        <figure class="schema-card">
-          <svg class="schema-svg" viewBox="0 0 260 120" role="img" aria-label="Schéma loi des nœuds">
-            <circle cx="130" cy="60" r="7" fill="#00c853"></circle>
-            <line x1="130" y1="60" x2="60" y2="25" stroke="#a8b0b3" stroke-width="3"></line>
-            <line x1="130" y1="60" x2="60" y2="95" stroke="#a8b0b3" stroke-width="3"></line>
-            <line x1="130" y1="60" x2="210" y2="60" stroke="#a8b0b3" stroke-width="3"></line>
-            <text x="78" y="32" fill="#00c853" font-size="13">I1</text>
-            <text x="78" y="102" fill="#00c853" font-size="13">I2</text>
-            <text x="184" y="52" fill="#e46116" font-size="13">I3</text>
-            <text x="95" y="18" fill="#e6e6e6" font-size="12">I1 + I2 = I3</text>
-          </svg>
-          <figcaption class="schema-caption">KCL : courants entrants = courants sortants</figcaption>
-        </figure>
-
-        <figure class="schema-card">
-          <svg class="schema-svg" viewBox="0 0 260 120" role="img" aria-label="Schéma loi des mailles">
-            <rect x="40" y="20" width="180" height="80" fill="none" stroke="#a8b0b3" stroke-width="3"></rect>
-            <rect x="90" y="20" width="24" height="20" fill="none" stroke="#00c853" stroke-width="3"></rect>
-            <rect x="150" y="80" width="24" height="20" fill="none" stroke="#00c853" stroke-width="3"></rect>
-            <text x="102" y="16" fill="#e46116" font-size="12" text-anchor="middle">R1</text>
-            <text x="162" y="115" fill="#e46116" font-size="12" text-anchor="middle">R2</text>
-            <text x="52" y="66" fill="#00c853" font-size="13">Usource</text>
-            <text x="126" y="66" fill="#e6e6e6" font-size="12">ΣU = 0</text>
-          </svg>
-          <figcaption class="schema-caption">KVL : énergie fournie = énergie dissipée</figcaption>
-        </figure>
-
-        <figure class="schema-card">
-          <svg class="schema-svg" viewBox="0 0 260 120" role="img" aria-label="Schéma série et parallèle">
-            <line x1="15" y1="35" x2="35" y2="35" stroke="#a8b0b3" stroke-width="3"></line>
-            <rect x="35" y="25" width="40" height="20" fill="none" stroke="#00c853" stroke-width="3"></rect>
-            <rect x="85" y="25" width="40" height="20" fill="none" stroke="#00c853" stroke-width="3"></rect>
-            <line x1="125" y1="35" x2="145" y2="35" stroke="#a8b0b3" stroke-width="3"></line>
-            <text x="80" y="18" fill="#e6e6e6" font-size="12" text-anchor="middle">Série</text>
-            <line x1="170" y1="20" x2="170" y2="100" stroke="#a8b0b3" stroke-width="3"></line>
-            <line x1="170" y1="20" x2="235" y2="20" stroke="#a8b0b3" stroke-width="3"></line>
-            <line x1="170" y1="100" x2="235" y2="100" stroke="#a8b0b3" stroke-width="3"></line>
-            <rect x="200" y="28" width="24" height="22" fill="none" stroke="#00c853" stroke-width="3"></rect>
-            <rect x="200" y="70" width="24" height="22" fill="none" stroke="#00c853" stroke-width="3"></rect>
-            <text x="202" y="14" fill="#e6e6e6" font-size="12">Parallèle</text>
-          </svg>
-          <figcaption class="schema-caption">Équivalences : série et parallèle</figcaption>
-        </figure>
-      </div>
+      <p>Cette convention est indispensable pour vérifier le bilan énergétique d'un circuit.</p>
 
       <h2>2. Loi des nœuds (Kirchhoff — KCL)</h2>
       <h3>Principe de conservation de la charge</h3>
-      <p>Un nœud est un point où plusieurs conducteurs se rejoignent. La charge électrique ne peut pas s'accumuler en régime permanent.</p>
+      <p>Un nœud est un point où plusieurs conducteurs se rejoignent. En régime permanent, la charge ne s'accumule pas dans ce point. Donc :</p>
       <p class="formula">∑ I = 0</p>
-      <p>En pratique : courants entrants = courants sortants.</p>
+      <p>En pratique, cela revient à écrire : <strong>courants entrants = courants sortants</strong>.</p>
 
-      <h3>Méthode d'analyse nodale</h3>
-      <p>Étapes :</p>
+      <figure class="schema-card">
+        <svg class="schema-svg" viewBox="0 0 360 150" role="img" aria-label="Schéma KCL avec courants entrants et sortant">
+          <circle cx="170" cy="78" r="8" fill="#00c853"></circle>
+          <line x1="40" y1="30" x2="170" y2="78" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="40" y1="122" x2="170" y2="78" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="170" y1="78" x2="330" y2="78" stroke="#a8b0b3" stroke-width="3"></line>
+          <polygon points="112,56 124,60 116,70" fill="#00c853"></polygon>
+          <polygon points="114,101 126,97 118,88" fill="#00c853"></polygon>
+          <polygon points="262,71 274,78 262,85" fill="#e46116"></polygon>
+          <text x="78" y="47" fill="#00c853" font-size="13">I1 entrant</text>
+          <text x="80" y="118" fill="#00c853" font-size="13">I2 entrant</text>
+          <text x="250" y="65" fill="#e46116" font-size="13">I3 sortant</text>
+          <text x="180" y="24" fill="#e6e6e6" text-anchor="middle" font-size="14">I1 + I2 = I3</text>
+        </svg>
+        <figcaption class="schema-caption">Au nœud, rien ne disparaît : le courant qui arrive repart forcément ailleurs.</figcaption>
+      </figure>
+
+      <h3>Méthode d'analyse nodale (pas à pas)</h3>
       <ol>
-        <li>Choisir un nœud de référence (masse)</li>
-        <li>Définir les tensions de nœud inconnues</li>
-        <li>Exprimer chaque courant avec la loi d'Ohm</li>
-        <li>Écrire KCL pour chaque nœud</li>
-        <li>Résoudre le système</li>
+        <li>Choisir un nœud de référence (masse, noté 0 V)</li>
+        <li>Nommer les tensions de nœud inconnues (V1, V2, Vn...)</li>
+        <li>Exprimer chaque courant de branche avec U = R × I</li>
+        <li>Écrire une équation KCL par nœud inconnu</li>
+        <li>Résoudre le système d'équations</li>
       </ol>
-      <p>Exemple pour un nœud relié à trois résistances :</p>
+      <p>Exemple :</p>
       <p class="formula">(Vn − V1)/R1 + (Vn − V2)/R2 + (Vn − 0)/R3 = 0</p>
-      <p>C'est la méthode la plus utilisée en simulation.</p>
+      <p>C'est la méthode la plus utilisée dans les solveurs SPICE et dans l'analyse de circuits complexes.</p>
 
       <h3>Diviseur de courant</h3>
-      <p>Deux résistances en parallèle :</p>
+      <p>Dans deux branches résistives en parallèle :</p>
       <p class="formula">I1 = I_total × (R2 / (R1 + R2))</p>
       <p class="formula">I2 = I_total × (R1 / (R1 + R2))</p>
-      <p>Le courant suit le chemin de plus faible résistance.</p>
+      <p>Plus la résistance d'une branche est faible, plus elle attire de courant.</p>
 
       <h2>3. Loi des mailles (Kirchhoff — KVL)</h2>
       <h3>Principe de conservation de l'énergie</h3>
-      <p>Dans une boucle fermée, la somme algébrique des tensions est nulle.</p>
+      <p>Dans une boucle fermée, la somme algébrique des tensions est nulle :</p>
       <p class="formula">∑ U = 0</p>
-      <p>Énergie fournie = énergie dissipée.</p>
+      <p>Autrement dit, l'énergie fournie par la source est entièrement absorbée par les composants passifs.</p>
+
+      <figure class="schema-card">
+        <svg class="schema-svg" viewBox="0 0 380 170" role="img" aria-label="Schéma KVL avec source et deux résistances en maille">
+          <line x1="45" y1="30" x2="320" y2="30" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="320" y1="30" x2="320" y2="130" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="320" y1="130" x2="45" y2="130" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="45" y1="130" x2="45" y2="92" stroke="#a8b0b3" stroke-width="3"></line>
+          <line x1="45" y1="68" x2="45" y2="30" stroke="#a8b0b3" stroke-width="3"></line>
+
+          <line x1="36" y1="92" x2="54" y2="92" stroke="#e46116" stroke-width="3"></line>
+          <line x1="30" y1="68" x2="60" y2="68" stroke="#e46116" stroke-width="3"></line>
+          <text x="18" y="82" fill="#e46116" font-size="12">−</text>
+          <text x="18" y="60" fill="#e46116" font-size="12">+</text>
+          <text x="74" y="82" fill="#e46116" font-size="13">Usource</text>
+
+          <rect x="132" y="18" width="52" height="24" fill="none" stroke="#00c853" stroke-width="3"></rect>
+          <text x="158" y="15" fill="#00c853" text-anchor="middle" font-size="12">R1</text>
+          <rect x="205" y="118" width="52" height="24" fill="none" stroke="#00c853" stroke-width="3"></rect>
+          <text x="231" y="158" fill="#00c853" text-anchor="middle" font-size="12">R2</text>
+
+          <path d="M95 52 C125 5, 250 5, 280 52" fill="none" stroke="#00c853" stroke-width="2"></path>
+          <polygon points="275,46 287,50 278,59" fill="#00c853"></polygon>
+          <text x="188" y="18" fill="#00c853" text-anchor="middle" font-size="12">I (sens de maille)</text>
+
+          <text x="188" y="88" fill="#e6e6e6" text-anchor="middle" font-size="14">+Usource − UR1 − UR2 = 0</text>
+        </svg>
+        <figcaption class="schema-caption">KVL en une phrase : en faisant le tour d'une boucle, les hausses et chutes de tension se compensent exactement.</figcaption>
+      </figure>
 
       <h3>Méthode des mailles</h3>
-      <p>Étapes :</p>
       <ol>
-        <li>Définir un courant de maille par boucle</li>
-        <li>Appliquer KVL</li>
-        <li>Exprimer les tensions avec U = R × I</li>
-        <li>Résoudre le système</li>
+        <li>Choisir un sens de parcours pour chaque boucle (horaire ou antihoraire)</li>
+        <li>Écrire la somme algébrique des tensions sur la boucle</li>
+        <li>Remplacer chaque tension résistive par R × I</li>
+        <li>Résoudre les inconnues de courant</li>
       </ol>
       <p class="formula">U_source − R1I − R2I = 0</p>
 
       <h3>Diviseur de tension</h3>
-      <p>Deux résistances en série :</p>
+      <p>Pour deux résistances en série :</p>
       <p class="formula">U1 = U_total × (R1 / (R1 + R2))</p>
       <p class="formula">U2 = U_total × (R2 / (R1 + R2))</p>
-      <p>Base de nombreuses références de tension.</p>
+      <p>Très utile pour créer une tension de référence à partir d'une alimentation plus élevée.</p>
 
       <h2>4. Résistances équivalentes</h2>
       <h3>Série</h3>
-      <p>Même courant dans chaque élément.</p>
+      <p>Même courant dans tous les composants, tensions qui s'additionnent :</p>
       <p class="formula">R_eq = R1 + R2 + ...</p>
-      <p>Utilisé pour limiter le courant.</p>
 
       <h3>Parallèle</h3>
-      <p>Même tension aux bornes de chaque élément.</p>
+      <p>Même tension sur chaque branche, courants qui se répartissent :</p>
       <p class="formula">1 / R_eq = 1/R1 + 1/R2 + ...</p>
-      <p>La résistance équivalente est toujours plus petite que la plus petite résistance.</p>
+      <p>La résistance équivalente en parallèle est toujours plus petite que la plus petite résistance du montage.</p>
+
+      <div class="schema-grid" aria-label="Schémas d'équivalences série et parallèle">
+        <figure class="schema-card">
+          <svg class="schema-svg" viewBox="0 0 360 140" role="img" aria-label="Équivalence série de deux résistances">
+            <circle cx="30" cy="70" r="4" fill="#e46116"></circle>
+            <circle cx="330" cy="70" r="4" fill="#e46116"></circle>
+            <line x1="34" y1="70" x2="80" y2="70" stroke="#a8b0b3" stroke-width="3"></line>
+            <rect x="80" y="54" width="72" height="32" fill="none" stroke="#00c853" stroke-width="3"></rect>
+            <line x1="152" y1="70" x2="206" y2="70" stroke="#a8b0b3" stroke-width="3"></line>
+            <rect x="206" y="54" width="72" height="32" fill="none" stroke="#00c853" stroke-width="3"></rect>
+            <line x1="278" y1="70" x2="326" y2="70" stroke="#a8b0b3" stroke-width="3"></line>
+            <text x="116" y="49" fill="#00c853" text-anchor="middle" font-size="12">R1</text>
+            <text x="242" y="49" fill="#00c853" text-anchor="middle" font-size="12">R2</text>
+            <text x="180" y="122" fill="#e6e6e6" text-anchor="middle" font-size="14">R_eq = R1 + R2</text>
+            <text x="180" y="24" fill="#e46116" text-anchor="middle" font-size="12">Même courant I partout</text>
+          </svg>
+          <figcaption class="schema-caption">Série : on additionne directement les résistances.</figcaption>
+        </figure>
+
+        <figure class="schema-card">
+          <svg class="schema-svg" viewBox="0 0 360 140" role="img" aria-label="Équivalence parallèle de deux résistances">
+            <circle cx="48" cy="24" r="4" fill="#e46116"></circle>
+            <circle cx="48" cy="116" r="4" fill="#e46116"></circle>
+            <circle cx="312" cy="24" r="4" fill="#e46116"></circle>
+            <circle cx="312" cy="116" r="4" fill="#e46116"></circle>
+            <line x1="48" y1="24" x2="312" y2="24" stroke="#a8b0b3" stroke-width="3"></line>
+            <line x1="48" y1="116" x2="312" y2="116" stroke="#a8b0b3" stroke-width="3"></line>
+            <line x1="110" y1="24" x2="110" y2="116" stroke="#a8b0b3" stroke-width="3"></line>
+            <line x1="250" y1="24" x2="250" y2="116" stroke="#a8b0b3" stroke-width="3"></line>
+            <rect x="96" y="48" width="28" height="44" fill="none" stroke="#00c853" stroke-width="3"></rect>
+            <rect x="236" y="48" width="28" height="44" fill="none" stroke="#00c853" stroke-width="3"></rect>
+            <text x="110" y="43" fill="#00c853" text-anchor="middle" font-size="12">R1</text>
+            <text x="250" y="43" fill="#00c853" text-anchor="middle" font-size="12">R2</text>
+            <text x="180" y="132" fill="#e6e6e6" text-anchor="middle" font-size="14">1/R_eq = 1/R1 + 1/R2</text>
+            <text x="180" y="16" fill="#e46116" text-anchor="middle" font-size="12">Même tension sur chaque branche</text>
+          </svg>
+          <figcaption class="schema-caption">Parallèle : on additionne les conductances (inverse des résistances).</figcaption>
+        </figure>
+      </div>
 
       <h2>5. Stratégie complète d'analyse d'un circuit</h2>
-      <p>Méthode recommandée :</p>
+      <p>Méthode recommandée pour débuter sans se perdre :</p>
       <ol>
-        <li>Identifier la masse</li>
-        <li>Simplifier le circuit (série/parallèle)</li>
-        <li>Calculer R_eq</li>
-        <li>Appliquer la loi d'Ohm pour le courant total</li>
-        <li>Utiliser le diviseur de tension</li>
-        <li>Utiliser KCL pour les branches</li>
-        <li>Vérifier avec KVL</li>
-        <li>Vérifier la puissance dissipée</li>
+        <li>Identifier la masse (référence 0 V)</li>
+        <li>Repérer série et parallèle pour simplifier le schéma</li>
+        <li>Calculer la résistance équivalente R_eq</li>
+        <li>Calculer le courant total avec la loi d'Ohm</li>
+        <li>Déduire les tensions par diviseur de tension</li>
+        <li>Déduire les courants de branche avec KCL</li>
+        <li>Contrôler les résultats avec KVL</li>
+        <li>Vérifier la puissance dissipée composant par composant</li>
       </ol>
-      <p>Vérification énergétique :</p>
+      <p>Contrôle final conseillé :</p>
       <p class="formula">P_source = ∑ P_dissipée</p>
 
       <h2>6. Cas des sources multiples</h2>
-      <p>Si plusieurs sources sont présentes :</p>
+      <p>Si plusieurs sources sont présentes, utiliser le principe de superposition :</p>
       <ul>
-        <li>Appliquer la superposition</li>
         <li>Analyser une source à la fois</li>
-        <li>Sommer les effets</li>
+        <li>Annuler les autres sources temporairement</li>
+        <li>Sommer les contributions finales</li>
       </ul>
-      <p>Les sources de tension idéales se remplacent par des courts-circuits lorsqu'elles sont annulées. Les sources de courant idéales se remplacent par des circuits ouverts.</p>
-
-      <h2>7. Erreurs fréquentes</h2>
+      <p>Rappel d'annulation :</p>
       <ul>
-        <li>Mesurer un courant en parallèle</li>
-        <li>Oublier la masse de référence</li>
-        <li>Confondre série et parallèle sur breadboard</li>
-        <li>Négliger la puissance dissipée</li>
-        <li>Utiliser la loi d'Ohm sur un composant non linéaire</li>
+        <li>Source de tension idéale annulée : court-circuit</li>
+        <li>Source de courant idéale annulée : circuit ouvert</li>
+      </ul>
+
+      <h2>7. Erreurs fréquentes (et comment les éviter)</h2>
+      <ul>
+        <li>Mesurer un courant en parallèle : toujours insérer l'ampèremètre en série</li>
+        <li>Oublier la masse : choisir le 0 V avant tout calcul</li>
+        <li>Confondre série et parallèle sur breadboard : vérifier les rails et colonnes</li>
+        <li>Négliger la puissance : calculer P pour chaque résistance critique</li>
+        <li>Appliquer Ohm à un composant non linéaire sans précaution</li>
       </ul>
 
       <h2>8. Extension au régime alternatif</h2>
-      <p>Les mêmes lois s'appliquent avec :</p>
+      <p>Les mêmes lois restent valables si on remplace :</p>
       <ul>
-        <li>R → Z (impédance)</li>
-        <li>U et I deviennent des grandeurs complexes</li>
+        <li>R par Z (impédance complexe)</li>
+        <li>U et I par des grandeurs complexes (phasors)</li>
       </ul>
+      <p>La logique de résolution ne change pas : seules les grandeurs manipulées deviennent complexes.</p>
 
       <h2>9. Récapitulatif opérationnel</h2>
       <ul>
-        <li>Loi d'Ohm : relation locale tension/courant</li>
-        <li>Loi des nœuds : conservation du courant</li>
-        <li>Loi des mailles : conservation de la tension</li>
+        <li>Loi d'Ohm : relie localement tension, courant et résistance</li>
+        <li>Loi des nœuds : garantit la conservation du courant</li>
+        <li>Loi des mailles : garantit la conservation de la tension</li>
       </ul>
-      <p>Ensemble, elles permettent de résoudre n'importe quel circuit linéaire.</p>
+      <p>Ensemble, ces lois permettent de résoudre n'importe quel circuit linéaire, du montage débutant jusqu'aux réseaux plus avancés.</p>
 
       <div class="actions">
         <a class="btn-secondary" href="../ressources.html">Retour aux ressources</a>
