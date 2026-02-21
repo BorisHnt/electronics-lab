@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "M290";
-  src: url("../fonts/m290/m290.ttf") format("truetype");
+  font-family: "Golden Girdle";
+  src: url("../fonts/Golden Girdle/Golden Girdle.otf") format("truetype");
   font-display: swap;
 }
 
@@ -86,7 +86,7 @@ h6 {
 }
 
 h1 {
-  font-family: "M290", var(--font-headings);
+  font-family: "Golden Girdle", var(--font-headings);
   font-size: clamp(2rem, 6vw, 3.4rem);
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -365,6 +365,10 @@ main .container > .card + .card {
   gap: 6px;
 }
 
+.form-field[hidden] {
+  display: none;
+}
+
 .form-field label {
   font-family: var(--font-headings);
   color: var(--color-muted);
@@ -438,8 +442,33 @@ th {
 
 .resistor-form {
   display: grid;
-  gap: var(--space-2);
+  gap: 10px;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
   margin-top: var(--space-2);
+}
+
+#band-count-field {
+  grid-column: 1 / -1;
+}
+
+#band1-field,
+#band2-field,
+#band3-field {
+  grid-column: span 2;
+}
+
+.resistor-form.is-four-band #band1-field,
+.resistor-form.is-four-band #band2-field {
+  grid-column: span 3;
+}
+
+#multiplier-field,
+#tolerance-field {
+  grid-column: span 3;
+}
+
+.resistor-form .actions {
+  grid-column: 1 / -1;
 }
 
 .combo-row {
@@ -544,13 +573,6 @@ th {
     grid-column: 1 / -1;
   }
 
-  .resistor-form {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .resistor-form .actions {
-    grid-column: 1 / -1;
-  }
 }
 
 @media (min-width: 1024px) {

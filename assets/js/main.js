@@ -370,6 +370,8 @@
 
     function toggleBandCountUI() {
       var isFiveBands = bandCount.value === '5';
+      form.classList.toggle('is-five-band', isFiveBands);
+      form.classList.toggle('is-four-band', !isFiveBands);
       band3Field.hidden = !isFiveBands;
       if (band3Visual) {
         band3Visual.classList.toggle('is-hidden', !isFiveBands);

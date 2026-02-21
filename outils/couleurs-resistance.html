@@ -83,7 +83,7 @@
       <p class="muted">Choisissez 4 ou 5 anneaux: le schema se met a jour et la valeur est calculee automatiquement.</p>
 
       <form id="resistor-color-form" class="resistor-form" aria-label="Decodeur de resistance">
-        <div class="form-field">
+        <div class="form-field" id="band-count-field">
           <label for="band-count">Nombre d'anneaux</label>
           <select id="band-count" name="band-count">
             <option value="4">4 anneaux</option>
@@ -91,7 +91,7 @@
           </select>
         </div>
 
-        <div class="form-field">
+        <div class="form-field" id="band1-field">
           <label for="band1-select">Anneau 1 (chiffre)</label>
           <div class="combo-row">
             <select id="band1-select" name="band1"></select>
@@ -99,7 +99,7 @@
           </div>
         </div>
 
-        <div class="form-field">
+        <div class="form-field" id="band2-field">
           <label for="band2-select">Anneau 2 (chiffre)</label>
           <div class="combo-row">
             <select id="band2-select" name="band2"></select>
@@ -115,7 +115,7 @@
           </div>
         </div>
 
-        <div class="form-field">
+        <div class="form-field" id="multiplier-field">
           <label for="multiplier-select">Multiplicateur</label>
           <div class="combo-row">
             <select id="multiplier-select" name="multiplier"></select>
@@ -123,7 +123,7 @@
           </div>
         </div>
 
-        <div class="form-field">
+        <div class="form-field" id="tolerance-field">
           <label for="tolerance-select">Tolerance</label>
           <div class="combo-row">
             <select id="tolerance-select" name="tolerance"></select>
