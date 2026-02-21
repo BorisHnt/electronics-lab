@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electronics Lab | Code condensateur</title>
+  <meta name="description" content="Décodeur de code condensateur : convertissez un code 3 chiffres (103, 104, 501...) en farads.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script defer src="../assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">Electronics Lab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay" id="site-menu" role="navigation" aria-label="Navigation principale" aria-hidden="true">
+    <ul class="nav-list" role="list">
+      <li><a class="nav-item" data-nav="index" href="../index.html">Accueil</a></li>
+      <li><a class="nav-item" data-nav="modules" href="../modules.html">Modules</a></li>
+      <li><a class="nav-item" data-nav="theorie" href="../theorie.html">Théorie</a></li>
+      <li>
+        <a class="nav-item" data-nav="outils" href="../outils.html">Outils</a>
+        <ul class="nav-submenu" role="list" hidden>
+          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="couleurs-resistance.html">Couleurs résistance</a></li>
+          <li><a class="nav-subitem" data-nav="loi-ohm" href="loi-ohm.html">Calcul loi d'Ohm</a></li>
+        </ul>
+      </li>
+      <li><a class="nav-item" data-nav="ressources" href="../ressources.html">Ressources</a></li>
+      <li><a class="nav-item" data-nav="a-propos" href="../a-propos.html">À propos</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../index.html">Accueil</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../outils.html">Outils</a>
+      <span aria-hidden="true">&gt;</span>
+      <span>Code condensateur</span>
+    </nav>
+
+    <section class="page-header">
+      <h1>Code condensateur</h1>
+      <p>Saisissez un code à 3 chiffres (ex : 103, 104, 501) pour afficher la valeur en farads.</p>
+    </section>
+
+    <section class="card" aria-labelledby="cap-code-title">
+      <h2 id="cap-code-title">Décodeur</h2>
+      <form id="capacitor-code-form" class="cap-form" novalidate>
+        <div class="form-field">
+          <label for="capacitor-code">Code condensateur</label>
+          <input id="capacitor-code" name="capacitor-code" type="text" inputmode="numeric" maxlength="3" placeholder="Ex : 104" aria-describedby="cap-help">
+          <p id="cap-help" class="muted">Format attendu : 3 chiffres (XY Z), valeur exprimée en pF.</p>
+        </div>
+
+        <div class="actions">
+          <button class="btn-primary" type="submit">Calculer</button>
+          <button class="btn-secondary" id="capacitor-code-reset" type="button">Réinitialiser</button>
+        </div>
+      </form>
+
+      <div id="capacitor-code-result" class="result-box cap-result" role="status" aria-live="polite">
+        <p class="cap-result-main" id="capacitor-farad-value">0 F</p>
+        <p class="cap-result-detail" id="capacitor-result-detail">Entrez un code pour afficher la conversion.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>

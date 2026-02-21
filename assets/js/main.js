@@ -28,9 +28,11 @@
       'securite-atelier.html': 'ressources',
       'memo-lois-electronique.html': 'ressources',
       'lecture-resistances.html': 'ressources',
+      'lecture-condensateurs.html': 'ressources',
       'a-propos.html': 'a-propos',
       'loi-ohm.html': 'outils',
-      'couleurs-resistance.html': 'outils'
+      'couleurs-resistance.html': 'outils',
+      'code-condensateur.html': 'outils'
     };
 
     document.querySelectorAll('.nav-submenu').forEach(function (submenu) {
@@ -442,8 +444,99 @@
     }
   }
 
+  function setupCapacitorCodeTool() {
+    var form = document.getElementById('capacitor-code-form');
+    var input = document.getElementById('capacitor-code');
+    var resetButton = document.getElementById('capacitor-code-reset');
+    var resultBox = document.getElementById('capacitor-code-result');
+    var faradValue = document.getElementById('capacitor-farad-value');
+    var detail = document.getElementById('capacitor-result-detail');
+
+    if (!form || !input || !resultBox || !faradValue || !detail) {
+      return;
+    }
+
+    function normalizeCode(value) {
+      return value.replace(/\s+/g, '');
+    }
+
+    function trimNumber(value, decimals) {
+      var fixed = value.toFixed(decimals);
+      return fixed
+        .replace(/\.0+$/, '')
+        .replace(/(\.\d*[1-9])0+$/, '$1');
+    }
+
+    function formatFarad(value) {
+      if (value === 0) {
+        return '0 F';
+      }
+      if (value >= 0.001) {
+        return trimNumber(value, 6) + ' F';
+      }
+      if (value >= 0.000001) {
+        return value.toExponential(3).replace('+', '') + ' F';
+      }
+      return value.toExponential(4).replace('+', '') + ' F';
+    }
+
+    function setError(message) {
+      resultBox.classList.add('is-error');
+      faradValue.textContent = '—';
+      detail.textContent = message;
+    }
+
+    function setSuccess(mainText, secondaryText) {
+      resultBox.classList.remove('is-error');
+      faradValue.textContent = mainText;
+      detail.textContent = secondaryText;
+    }
+
+    function decodeCapacitorCode(code) {
+      var significant = Number(code.slice(0, 2));
+      var exponent = Number(code.charAt(2));
+      var valuePf = significant * Math.pow(10, exponent);
+      return {
+        pf: valuePf,
+        nf: valuePf / 1000,
+        uf: valuePf / 1000000,
+        f: valuePf * 1e-12
+      };
+    }
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+
+      var code = normalizeCode(input.value);
+      input.value = code;
+
+      if (!/^\d{3}$/.test(code)) {
+        setError('Code invalide. Utilisez exactement 3 chiffres (ex : 103, 104, 501).');
+        return;
+      }
+
+      var values = decodeCapacitorCode(code);
+      var secondary = code + ' = '
+        + trimNumber(values.pf, 0) + ' pF = '
+        + trimNumber(values.nf, 6) + ' nF = '
+        + trimNumber(values.uf, 6) + ' µF';
+
+      setSuccess(formatFarad(values.f), secondary);
+    });
+
+    if (resetButton) {
+      resetButton.addEventListener('click', function () {
+        form.reset();
+        resultBox.classList.remove('is-error');
+        faradValue.textContent = '0 F';
+        detail.textContent = 'Entrez un code pour afficher la conversion.';
+      });
+    }
+  }
+
   applyActiveMenuState();
   setupMenu();
   setupOhmCalculator();
   setupResistorColorCalculator();
+  setupCapacitorCodeTool();
 })();

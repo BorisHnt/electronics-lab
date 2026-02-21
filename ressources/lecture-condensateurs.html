@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Electronics Lab | Lecture des condensateurs</title>
+  <meta name="description" content="Cours complet de lecture des condensateurs : types, code 3 chiffres, tolérance, tension nominale, polarité, associations et bonnes pratiques atelier.">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <script defer src="../assets/js/main.js"></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="../index.html">Electronics Lab</a>
+      <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-menu">MENU</button>
+    </div>
+  </header>
+
+  <nav class="nav-overlay" id="site-menu" role="navigation" aria-label="Navigation principale" aria-hidden="true">
+    <ul class="nav-list" role="list">
+      <li><a class="nav-item" data-nav="index" href="../index.html">Accueil</a></li>
+      <li><a class="nav-item" data-nav="modules" href="../modules.html">Modules</a></li>
+      <li><a class="nav-item" data-nav="theorie" href="../theorie.html">Théorie</a></li>
+      <li>
+        <a class="nav-item" data-nav="outils" href="../outils.html">Outils</a>
+        <ul class="nav-submenu" role="list" hidden>
+          <li><a class="nav-subitem" data-nav="couleurs-resistance" href="../outils/couleurs-resistance.html">Couleurs résistance</a></li>
+          <li><a class="nav-subitem" data-nav="loi-ohm" href="../outils/loi-ohm.html">Calcul loi d'Ohm</a></li>
+        </ul>
+      </li>
+      <li><a class="nav-item" data-nav="ressources" href="../ressources.html">Ressources</a></li>
+      <li><a class="nav-item" data-nav="a-propos" href="../a-propos.html">À propos</a></li>
+    </ul>
+  </nav>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Fil d'Ariane">
+      <a href="../index.html">Accueil</a>
+      <span aria-hidden="true">&gt;</span>
+      <a href="../ressources.html">Ressources</a>
+      <span aria-hidden="true">&gt;</span>
+      <span>Lecture des condensateurs</span>
+    </nav>
+
+    <section class="page-header">
+      <h1>Lecture des condensateurs</h1>
+      <p>Lire un condensateur, c'est identifier sa capacité, son type, sa tension maximale, sa tolérance et sa polarité éventuelle.</p>
+    </section>
+
+    <article class="card prose">
+      <h2>1. À quoi sert un condensateur ?</h2>
+      <p>Un condensateur stocke de l'énergie électrique sous forme de champ électrique. Il est utilisé pour stabiliser une alimentation, filtrer un signal ou créer des délais.</p>
+      <p>Relation fondamentale :</p>
+      <p class="formula">Q = C × U</p>
+      <ul>
+        <li>Q : charge (coulombs)</li>
+        <li>C : capacité (farads)</li>
+        <li>U : tension (volts)</li>
+      </ul>
+      <p>Plus la capacité est grande, plus le composant stocke de charge à tension égale.</p>
+
+      <h2>2. Unités utilisées en pratique</h2>
+      <p>Le farad est une unité très grande. En électronique, on utilise surtout :</p>
+      <ul>
+        <li>µF (microfarad) = 10<sup>−6</sup> F</li>
+        <li>nF (nanofarad) = 10<sup>−9</sup> F</li>
+        <li>pF (picofarad) = 10<sup>−12</sup> F</li>
+      </ul>
+      <p>Conversions essentielles :</p>
+      <p class="formula">1 µF = 1000 nF = 1 000 000 pF</p>
+      <p class="formula">1 nF = 1000 pF</p>
+
+      <h2>3. Reconnaître les types de condensateurs</h2>
+      <h3>Céramiques (traversants)</h3>
+      <ul>
+        <li>Aspect disque/pastille beige ou marron</li>
+        <li>Non polarisés</li>
+        <li>Code numérique fréquent (ex : 104)</li>
+        <li>Usage : découplage, filtrage haute fréquence</li>
+      </ul>
+
+      <h3>Céramiques CMS</h3>
+      <ul>
+        <li>Très petits rectangles sans pattes</li>
+        <li>Souvent sans marquage</li>
+        <li>Valeur à lire sur schéma/BOM</li>
+      </ul>
+
+      <h3>Film (polyester, polypropylène)</h3>
+      <ul>
+        <li>Boîtier rectangulaire, inscription souvent claire (ex : 100n 63V)</li>
+        <li>Non polarisés, stables, précis</li>
+        <li>Usage : audio, filtres analogiques, temporisations stables</li>
+      </ul>
+
+      <h3>Électrolytiques aluminium</h3>
+      <ul>
+        <li>Boîtier cylindrique ("canette")</li>
+        <li>Polarisés</li>
+        <li>Bande latérale = borne négative, patte longue = positive</li>
+        <li>Usage : filtrage d'alimentation, réservoir d'énergie</li>
+      </ul>
+
+      <h3>Électrolytiques CMS</h3>
+      <ul>
+        <li>Petit cylindre métallique sur base noire/marron</li>
+        <li>Marquage de polarité</li>
+      </ul>
+
+      <h3>Tantale</h3>
+      <ul>
+        <li>Boîtier goutte (traversant) ou rectangle (CMS)</li>
+        <li>Polarisés, compacts</li>
+        <li>Très sensibles à la surtension et à l'inversion</li>
+      </ul>
+
+      <h3>Variables</h3>
+      <ul>
+        <li>Présence d'une vis de réglage</li>
+        <li>Usage : accord RF, réglages fins d'oscillateurs</li>
+      </ul>
+
+      <h2>4. Lecture de la valeur</h2>
+      <h3>Code numérique à 3 chiffres (céramiques/film)</h3>
+      <p>Format :</p>
+      <p class="formula">XYZ (valeur en pF)</p>
+      <ul>
+        <li>XY : chiffres significatifs</li>
+        <li>Z : nombre de zéros à ajouter</li>
+      </ul>
+      <p>Exemple complet :</p>
+      <p class="formula">104 → 10 × 10<sup>4</sup> pF = 100 000 pF = 100 nF = 0,1 µF</p>
+
+      <h3>Exemples progressifs</h3>
+      <p class="formula">101 = 100 pF | 221 = 220 pF | 471 = 470 pF</p>
+      <p class="formula">102 = 1 nF | 103 = 10 nF | 104 = 100 nF | 105 = 1 µF</p>
+      <p>Valeur courante à retenir : <strong>104 = 100 nF</strong> (découplage IC).</p>
+
+      <h3>Valeur écrite en clair</h3>
+      <p>Sur beaucoup d'électrolytiques :</p>
+      <p class="formula">100 µF 25V</p>
+      <p>Donc capacité = 100 µF et tension maximale = 25 V.</p>
+
+      <h2>5. Tolérance</h2>
+      <p>Lettre fréquente après la valeur :</p>
+      <ul>
+        <li>J = ±5%</li>
+        <li>K = ±10%</li>
+        <li>M = ±20%</li>
+      </ul>
+      <p class="formula">104K = 100 nF ±10%</p>
+      <p>La tolérance est importante pour les filtres analogiques, oscillateurs et temporisations précises.</p>
+
+      <h2>6. Tension nominale</h2>
+      <p>Un condensateur possède une tension maximale à ne jamais dépasser.</p>
+      <p class="formula">U_utilisation &lt; U_nominale</p>
+      <p>Exemple : pour un circuit 12 V, un composant 50 V apporte une marge confortable.</p>
+      <p>En cas de dépassement :</p>
+      <ul>
+        <li>Échauffement</li>
+        <li>Fuite</li>
+        <li>Destruction du diélectrique</li>
+        <li>Court-circuit possible</li>
+      </ul>
+
+      <h2>7. Polarité (électrolytiques et tantale)</h2>
+      <p>Seuls certains condensateurs sont polarisés (électrolytiques, tantale).</p>
+      <p>Toujours vérifier :</p>
+      <ul>
+        <li>Bande négative</li>
+        <li>Patte positive (traversant) ou marquage +</li>
+      </ul>
+      <p>Une inversion peut provoquer fuite, fort échauffement, voire explosion du boîtier.</p>
+
+      <h2>8. Rôle dans un circuit</h2>
+      <h3>Découplage</h3>
+      <p>Un 100 nF placé près d'un circuit intégré absorbe les pics de courant et réduit le bruit local.</p>
+
+      <h3>Filtrage d'alimentation</h3>
+      <p>L'association électrolytique (grande capacité) + céramique 100 nF couvre les basses et hautes fréquences.</p>
+
+      <h3>Temporisation RC</h3>
+      <p class="formula">τ = R × C</p>
+      <p>Permet de créer des délais, filtres passe-bas et oscillateurs simples.</p>
+
+      <h2>9. Association de condensateurs</h2>
+      <h3>Parallèle</h3>
+      <p class="formula">C_eq = C1 + C2 + ...</p>
+      <p>Augmente la capacité totale, souvent utilisé en filtrage.</p>
+
+      <h3>Série</h3>
+      <p class="formula">1 / C_eq = 1/C1 + 1/C2 + ...</p>
+      <p>Réduit la capacité totale et peut augmenter la tension supportée (avec équilibrage adapté).</p>
+
+      <h2>10. Méthode complète en atelier</h2>
+      <ol>
+        <li>Identifier le type visuellement</li>
+        <li>Lire la valeur (code ou marquage)</li>
+        <li>Convertir en nF/µF</li>
+        <li>Vérifier tolérance et tension nominale</li>
+        <li>Vérifier la polarité si composant polarisé</li>
+        <li>Valider son emplacement dans le circuit</li>
+      </ol>
+
+      <h2>11. Erreurs fréquentes</h2>
+      <ul>
+        <li>Lire 104 comme 104 µF</li>
+        <li>Confondre nF et µF</li>
+        <li>Dépasser la tension nominale</li>
+        <li>Inverser un électrolytique</li>
+        <li>Utiliser un électrolytique seul en HF (mauvais découplage)</li>
+        <li>Négliger la tolérance dans un filtre</li>
+        <li>Utiliser un tantale sans marge de tension</li>
+      </ul>
+
+      <h2>12. Bonnes pratiques et astuce rapide</h2>
+      <ul>
+        <li>Toujours vérifier la polarité avant mise sous tension</li>
+        <li>Ajouter un 100 nF près de chaque IC</li>
+        <li>Choisir une tension nominale supérieure au besoin</li>
+        <li>Mesurer la capacité en cas de doute</li>
+      </ul>
+      <p>Raccourci utile en atelier :</p>
+      <p class="formula">104 = 100 nF (découplage) | 10 µF = filtrage local | 100 µF = filtrage alimentation</p>
+
+      <div class="actions">
+        <a class="btn-secondary" href="../ressources.html">Retour aux ressources</a>
+        <a class="btn-primary" href="../outils.html">Voir les outils</a>
+      </div>
+    </article>
+  </main>
+</body>
+</html>
