@@ -332,6 +332,10 @@ p {
   column-gap: var(--card-gap);
 }
 
+.module-overview-card {
+  margin-bottom: 10px;
+}
+
 main.container > .card + .card,
 main .container > .card + .card {
   margin-top: var(--card-gap);
