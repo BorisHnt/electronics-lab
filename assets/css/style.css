@@ -17,6 +17,7 @@
   --space-3: 24px;
   --space-4: 32px;
   --space-5: 40px;
+  --card-gap: 10px;
   --radius-card: 8px;
   --radius-button: 6px;
   --radius-input: 6px;
@@ -248,7 +249,8 @@ p {
 .grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 10px;
+  row-gap: var(--card-gap);
+  column-gap: var(--card-gap);
 }
 
 .card {
@@ -340,11 +342,12 @@ p {
 
 .list-layout {
   display: grid;
-  gap: 10px;
+  row-gap: var(--card-gap);
+  column-gap: var(--card-gap);
 }
 
-.container > .card + .card {
-  margin-top: 10px;
+main .container > .card + .card {
+  margin-top: var(--card-gap);
 }
 
 .list-item {
