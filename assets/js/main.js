@@ -17,13 +17,8 @@
     return lastSegment;
   }
 
-  function isOutilsContext(file) {
-    return file === 'outils.html' || file === 'loi-ohm.html' || file === 'couleurs-resistance.html';
-  }
-
   function applyActiveMenuState() {
     var currentFile = getCurrentFile();
-    var toolsContext = isOutilsContext(currentFile);
     var topLevelMap = {
       'index.html': 'index',
       'modules.html': 'modules',
@@ -37,10 +32,8 @@
       'couleurs-resistance.html': 'outils'
     };
 
-    body.classList.toggle('is-outils-context', toolsContext);
-
     document.querySelectorAll('.nav-submenu').forEach(function (submenu) {
-      submenu.hidden = !toolsContext;
+      submenu.hidden = true;
     });
 
     document.querySelectorAll('.nav-item, .nav-subitem').forEach(function (item) {
@@ -52,17 +45,7 @@
     var activeTop = document.querySelector('.nav-item[data-nav="' + currentTop + '"]');
     if (activeTop) {
       activeTop.classList.add('is-active');
-      if (!toolsContext || currentFile === 'outils.html') {
-        activeTop.setAttribute('aria-current', 'page');
-      }
-    }
-
-    if (currentFile === 'loi-ohm.html' || currentFile === 'couleurs-resistance.html') {
-      var activeSub = document.querySelector('.nav-subitem[data-nav="' + currentFile.replace('.html', '') + '"]');
-      if (activeSub) {
-        activeSub.classList.add('is-active');
-        activeSub.setAttribute('aria-current', 'page');
-      }
+      activeTop.setAttribute('aria-current', 'page');
     }
   }
 
