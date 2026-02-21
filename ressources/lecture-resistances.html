@@ -48,7 +48,19 @@
     </section>
 
     <article class="card prose">
-      <h2>1. Pourquoi un code couleur ?</h2>
+      <h2>1. À quoi sert une résistance ?</h2>
+      <p>Une résistance ne sert pas uniquement à \"ralentir\" le courant : elle est utilisée dans presque tous les circuits pour contrôler les niveaux électriques.</p>
+      <p>Principales fonctions :</p>
+      <ul>
+        <li>Limiter le courant (exemple : protéger une LED)</li>
+        <li>Créer une chute de tension</li>
+        <li>Fixer un point de fonctionnement (polarisation)</li>
+        <li>Former des diviseurs de tension</li>
+        <li>Dissiper une partie de l'énergie sous forme de chaleur</li>
+      </ul>
+      <p>Exemple concret : sans résistance en série, une LED peut consommer trop de courant et griller en quelques secondes.</p>
+
+      <h2>2. Pourquoi un code couleur ?</h2>
       <p>Les résistances traversantes sont souvent trop petites pour afficher une valeur numérique claire. Le code couleur est donc utilisé car il est :</p>
       <ul>
         <li>Compact</li>
@@ -57,7 +69,7 @@
       </ul>
       <p>Une bonne lecture des bandes permet d'éviter les erreurs de montage avant même la première mise sous tension.</p>
 
-      <h2>2. Structure du code couleur</h2>
+      <h2>3. Structure du code couleur</h2>
       <h3>Résistance à 4 bandes</h3>
       <p>Bandes :</p>
       <ol>
@@ -85,7 +97,7 @@
       <p class="formula">Marron – Noir – Noir – Rouge – Marron</p>
       <p class="formula">100 × 10² = 10 kΩ ±1%</p>
 
-      <h2>3. Table des couleurs</h2>
+      <h2>4. Table des couleurs</h2>
       <div class="table-wrap">
         <table>
           <thead>
@@ -114,7 +126,7 @@
         </table>
       </div>
 
-      <h2>4. Méthode de lecture pas à pas</h2>
+      <h2>5. Méthode de lecture pas à pas</h2>
       <ol>
         <li>Repérer la bande de tolérance (souvent or ou argent)</li>
         <li>Lire les bandes de gauche à droite</li>
@@ -124,13 +136,13 @@
       </ol>
       <p>Astuce débutant : si la dernière bande est isolée et un peu plus éloignée, c'est généralement la tolérance.</p>
 
-      <h2>5. Exemples pratiques</h2>
+      <h2>6. Exemples pratiques</h2>
       <p class="formula">Jaune – Violet – Rouge – Or → 47 × 10² = 4700 Ω = 4,7 kΩ ±5%</p>
       <p class="formula">Marron – Noir – Orange – Or → 10 × 10³ = 10 kΩ ±5%</p>
       <p class="formula">Rouge – Rouge – Marron – Or → 22 × 10¹ = 220 Ω ±5%</p>
       <p>En atelier, écrire d'abord le nombre significatif, puis appliquer le multiplicateur évite les confusions.</p>
 
-      <h2>6. Valeurs normalisées (séries E)</h2>
+      <h2>7. Valeurs normalisées (séries E)</h2>
       <p>Les résistances n'existent pas dans toutes les valeurs possibles.</p>
       <ul>
         <li>E6 : tolérance 20%</li>
@@ -140,7 +152,7 @@
       </ul>
       <p>C'est pour cela qu'on trouve facilement 4,7 kΩ, mais rarement 5 kΩ exact.</p>
 
-      <h2>7. Tolérance</h2>
+      <h2>8. Tolérance</h2>
       <p>La tolérance indique la variation possible autour de la valeur nominale.</p>
       <p class="formula">1 kΩ ±5% → plage réelle : 950 Ω à 1050 Ω</p>
       <p>Ce point devient crucial pour :</p>
@@ -150,7 +162,7 @@
         <li>Ponts diviseurs précis</li>
       </ul>
 
-      <h2>8. Puissance d'une résistance</h2>
+      <h2>9. Puissance d'une résistance</h2>
       <p>La puissance n'est pas codée par les couleurs : elle dépend de la taille physique.</p>
       <ul>
         <li>Très petite : 1/8 W</li>
@@ -161,7 +173,7 @@
       <p class="formula">P = I²R ou P = U²/R</p>
       <p>La puissance calculée doit rester inférieure à la puissance nominale de la résistance.</p>
 
-      <h2>9. Erreurs fréquentes</h2>
+      <h2>10. Erreurs fréquentes</h2>
       <ul>
         <li>Confondre le sens de lecture</li>
         <li>Oublier le multiplicateur</li>
@@ -171,7 +183,7 @@
       </ul>
       <p>En cas de doute : vérifier au multimètre avant montage.</p>
 
-      <h2>10. Astuces pratiques</h2>
+      <h2>11. Astuces pratiques</h2>
       <ul>
         <li>Mémoriser les couleurs des chiffres de 0 à 9</li>
         <li>Garder une table de référence visible à l'atelier</li>
@@ -179,11 +191,11 @@
         <li>Ranger les résistances par valeur dans des boîtes étiquetées</li>
       </ul>
 
-      <h2>11. Cas particuliers</h2>
+      <h2>12. Cas particuliers</h2>
       <p><strong>Résistances CMS :</strong> valeur inscrite en code numérique (exemple : 103 = 10 kΩ).</p>
       <p><strong>Résistances de précision :</strong> 5 bandes, parfois 6 bandes (coefficient de température).</p>
 
-      <h2>12. Méthode rapide pour débutant</h2>
+      <h2>13. Méthode rapide pour débutant</h2>
       <ul>
         <li>Tolérance à droite</li>
         <li>Lire 2 ou 3 chiffres selon le nombre de bandes</li>
