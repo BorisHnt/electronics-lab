@@ -68,6 +68,14 @@
       </ul>
     </section>
 
+    <section class="card">
+      <h2>Schéma de l'étape 2</h2>
+      <figure class="schema-card">
+        <img src="../../assets/img/NE555-MOD/LFO-NE555-STEP2.png" alt="Schéma étape 2 avec deux NE555, un LFO, réglages rate, pitch et depth, puis sortie audio vers haut-parleur.">
+        <figcaption class="schema-caption">Schéma de référence : double NE555 avec LFO de modulation (RATE), réglage de pitch et profondeur (DEPTH), puis sortie audio.</figcaption>
+      </figure>
+    </section>
+
     <section class="grid" aria-label="Avant et après l'ajout du LFO">
       <article class="card">
         <h3>Avant (étape 1)</h3>
@@ -142,12 +150,20 @@
     <section class="card">
       <h2>Liste des composants (ajouts étape 2)</h2>
       <ul>
-        <li>1 × NE555 supplémentaire (LFO)</li>
-        <li>1 × potentiomètre vitesse LFO</li>
-        <li>1 × potentiomètre profondeur</li>
-        <li>Résistances et condensateurs de timing LFO</li>
-        <li>Condensateurs de découplage pour le second NE555</li>
+        <li>1 × NE555 supplémentaire (LFO), en plus du NE555 VCO</li>
+        <li>1 × potentiomètre RATE : 1 MOhm (vitesse LFO)</li>
+        <li>1 × potentiomètre DEPTH : 100 kOhm (profondeur de modulation)</li>
+        <li>1 × potentiomètre PITCH : 470 kOhm (réglage VCO)</li>
+        <li>1 × résistance 10 kOhm (charge LFO)</li>
+        <li>1 × résistance 10 kOhm (liaison de modulation)</li>
+        <li>1 × résistance 2 kOhm (charge VCO)</li>
+        <li>1 × résistance 100 Ohm (série sortie audio)</li>
+        <li>1 × condensateur 1 µF (liaison modulation)</li>
+        <li>Plusieurs condensateurs 100 nF (timing, découplage et pin 5)</li>
+        <li>1 × condensateur 22 µF (liaison audio)</li>
+        <li>1 × haut-parleur</li>
       </ul>
+      <p class="muted">Valeurs relevées d'après le schéma fourni pour l'étape 2.</p>
     </section>
 
     <section class="card">
