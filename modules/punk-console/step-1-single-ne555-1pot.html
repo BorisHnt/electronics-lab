@@ -64,6 +64,14 @@
     </section>
 
     <section class="card">
+      <h2>Schéma du module 1</h2>
+      <figure class="schema-card">
+        <img src="../../assets/img/NE555-MOD/VCO-NE555-STEP1.png" alt="Schéma VCO NE555 étape 1 avec potentiomètre, réseau RC, sortie audio et haut-parleur.">
+        <figcaption class="schema-caption">Schéma de référence : VCO NE555 étape 1 (P1 470 kOhm, R1 2 kOhm, R2 100 Ohm, C1/C2/C3 100 nF, C4 22 µF).</figcaption>
+      </figure>
+    </section>
+
+    <section class="card">
       <h2>Montage breadboard pas à pas</h2>
       <ol>
         <li>Placez le NE555 au centre de la breadboard (encoche orientée vers le haut).</li>
@@ -72,9 +80,9 @@
         <li>Reliez les broches 2 (TRIG) et 6 (THRESH) ensemble.</li>
         <li>Placez le condensateur de timing entre le nœud 2/6 et GND.</li>
         <li>Placez le potentiomètre dans la chaîne de résistances de timing (RA/RB selon votre schéma).</li>
-        <li>Ajoutez un condensateur de 10 nF entre la broche 5 (CONTROL) et GND.</li>
+        <li>Ajoutez un condensateur de 100 nF entre la broche 5 (CONTROL) et GND.</li>
         <li>Ajoutez un découplage 100 nF entre VCC et GND, au plus près du NE555.</li>
-        <li>Prenez la sortie sur la broche 3, via un condensateur de liaison vers jack ou petit haut-parleur amplifié.</li>
+        <li>Prenez la sortie sur la broche 3 via une résistance série de 100 Ohm, puis un condensateur de liaison de 22 µF vers le haut-parleur.</li>
       </ol>
     </section>
 
@@ -82,13 +90,16 @@
       <h2>Liste des composants</h2>
       <ul>
         <li>1 × NE555</li>
-        <li>1 × potentiomètre (10 kOhm à 100 kOhm selon plage souhaitée)</li>
-        <li>1 × condensateur de timing (ex : 10 nF à 100 nF)</li>
-        <li>1 × condensateur 10 nF (broche 5)</li>
-        <li>1 × condensateur 100 nF (découplage VCC)</li>
-        <li>1 × condensateur de liaison audio (ex : 1 µF à 10 µF)</li>
-        <li>Résistances fixes de sécurité selon votre schéma</li>
-        <li>Breadboard, fils, alimentation basse tension, sortie audio</li>
+        <li>1 × potentiomètre P1 : 470 kOhm</li>
+        <li>1 × résistance R1 : 2 kOhm</li>
+        <li>1 × résistance R2 : 100 Ohm (série sortie audio)</li>
+        <li>1 × condensateur C1 : 100 nF</li>
+        <li>1 × condensateur C2 : 100 nF</li>
+        <li>1 × condensateur C3 : 100 nF (broche 5 CONTROL)</li>
+        <li>1 × condensateur C4 : 22 µF (liaison audio)</li>
+        <li>1 × haut-parleur</li>
+        <li>1 × alimentation DC (VCC/GND)</li>
+        <li>Breadboard et fils de connexion</li>
       </ul>
     </section>
 
