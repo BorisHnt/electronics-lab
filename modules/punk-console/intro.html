@@ -50,18 +50,20 @@
     </section>
 
     <section class="card">
-      <h2>Objectifs pédagogiques</h2>
-      <ul>
-        <li>Comprendre le fonctionnement d'un NE555 en astable.</li>
-        <li>Relier les composants RC à la fréquence perçue.</li>
-        <li>Introduire la modulation avec un LFO.</li>
-        <li>Découvrir l'accordage musical (progression logarithmique).</li>
-      </ul>
+      <h2>Le rôle du NE555</h2>
+      <p>Le NE555 est un circuit intégré très utilisé pour créer des temporisations et des oscillateurs. Dans ce module, il sert de base à la génération du son. Configuré en mode astable, il produit un signal carré en continu. Ce signal est assez simple d'un point de vue électronique, mais il est déjà suffisant pour obtenir un rendu sonore de type synthé brut.</p>
+      <p>Son intérêt pédagogique est qu'il permet de relier directement les valeurs des composants au résultat audible. Quand vous modifiez une résistance ou un condensateur dans son réseau RC, la période de charge et de décharge change, et donc la fréquence du son change aussi. En pratique, on entend immédiatement la théorie.</p>
+      <p>Autrement dit, le NE555 est ici le cœur du \"moteur audio\". Toute la progression du module consiste à apprendre à le piloter : d'abord à la main avec un potentiomètre, puis automatiquement avec un LFO, puis note par note avec un clavier accordable.</p>
+    </section>
+
+    <section class="card">
+      <h2>Objectif pédagogique du parcours</h2>
+      <p>L'objectif n'est pas seulement de faire un montage qui sonne. Le parcours est conçu comme un mini cours pratique : comprendre comment un oscillateur fonctionne, voir l'effet réel des constantes de temps RC, découvrir la modulation, puis introduire la logique musicale d'accordage sur plusieurs notes. À la fin, vous obtenez un instrument simple, mais surtout vous comprenez pourquoi il fonctionne.</p>
     </section>
 
     <section class="card">
       <h2>Prérequis et sécurité</h2>
-      <p>Avant de démarrer, vérifiez vos polarités, limitez le courant de l'alimentation et contrôlez les connexions de la breadboard.</p>
+      <p>Avant de commencer, prenez le temps de valider les bases de sécurité : polarités correctes, alimentation réglée avec limitation de courant, et vérification visuelle des connexions sur breadboard. Ce module reste en basse tension, mais une erreur simple (court-circuit, inversion d'un électrolytique, broche mal câblée) suffit à bloquer le montage ou à endommager un composant.</p>
       <div class="actions">
         <a class="btn-secondary" href="../../ressources/securite-atelier.html">Lire Sécurité atelier</a>
       </div>
@@ -69,12 +71,7 @@
 
     <section class="card">
       <h2>Plan des étapes</h2>
-      <ol>
-        <li>Étape 1 : VCO manuel avec 1 NE555 et 1 potentiomètre.</li>
-        <li>Étape 2 : ajout d'un LFO (2e NE555) pour moduler le VCO.</li>
-        <li>Étape 3 : clavier 24 notes avec trimmers d'accordage.</li>
-      </ol>
-      <p class="muted">Chaque étape contient une liste de composants, les points de compréhension et les erreurs fréquentes.</p>
+      <p>Le module se déroule en quatre temps. L'étape 1 pose les fondations avec un VCO manuel à base de NE555 et de potentiomètre. L'étape 2 ajoute un second NE555 en LFO pour introduire la modulation. L'étape 3 transforme le montage en instrument avec un clavier 24 notes accordable. Enfin, l'étape bonus compare deux caractères sonores (arpège et vibrato) via un switch de mode. Chaque page combine pratique de câblage, compréhension du phénomène et points d'attention en atelier.</p>
     </section>
 
     <section class="card">
